@@ -1,0 +1,120 @@
+# Claude Code Starter Message Template
+
+Copy and paste this at the start of each Claude Code session to provide full context.
+
+---
+
+I'm working on the **Hodinový opravár** website project - a static handyman service website using Astro and Tailwind CSS.
+
+## CRITICAL CONTEXT
+
+**Tech Stack:**
+- Framework: Astro 4.x (static site generator)
+- Styling: Tailwind CSS (NO separate CSS files)
+- Language: TypeScript
+- Interactivity: React Islands (minimal - only for forms, galleries, mobile menu)
+- Icons: Lucide React
+- Fonts: Outfit (Google Fonts)
+
+**Content Strategy:**
+- ALL content is static (no CMS, no database)
+- Data stored in TypeScript files in `src/data/`
+- Services: `src/data/services.ts`
+- Testimonials: `src/data/testimonials.ts`
+- Stats: `src/data/stats.ts`
+- FAQ: `src/data/faq.ts`
+
+**Design System:**
+- Complete design tokens in `.claude/design-system.md`
+- Color palette: Blue theme (primary: #3083FF)
+- Typography: Outfit font family
+- Spacing: 8px grid system
+- Tailwind config in: `tailwind.config.mjs`
+
+**Project Structure:**
+```
+src/
+├── components/
+│   ├── layout/       # Header, Footer
+│   ├── sections/     # Hero, Services, Stats, etc.
+│   ├── ui/           # Button, Card, Input, Badge
+│   └── interactive/  # React islands ONLY
+├── data/            # All static content
+├── pages/           # File-based routing
+├── layouts/         # BaseLayout
+└── styles/          # global.css (Tailwind imports)
+```
+
+Full structure in: `.claude/folder-structure.md`
+
+## CRITICAL RULES
+
+**1. Component Choice:**
+- ✅ DEFAULT to Astro components (`.astro`) for everything static
+- ❌ Only use React (`.tsx`) for genuine interactivity:
+  - ContactForm (validation, submission)
+  - ImageGallery (lightbox)
+  - MobileMenu (toggle state)
+- Use `client:load` for forms, `client:visible` for galleries, `client:idle` for menus
+
+**2. Styling:**
+- ✅ Use Tailwind utility classes for ALL styling
+- ✅ Reference design tokens: `text-h2`, `bg-primary`, `text-neutral-600`
+- ❌ NO separate CSS files (unless special effects like complex animations)
+- ✅ Mobile-first: base styles for mobile, add `md:`, `lg:`, `xl:` for larger screens
+
+**3. Language & Tone:**
+- Language: Slovak (Slovenčina)
+- Tone: Professional but friendly, formal (vykanie - "vy" not "ty")
+- Example: "Kontaktujte nás" not "Kontaktuj nás"
+
+**4. File Organization:**
+- Images: `/public/images/`
+- Data: `src/data/`
+- Components by type (layout, sections, ui, interactive)
+- Pages in `src/pages/` (file-based routing)
+
+**5. TypeScript:**
+- Use TypeScript for all data files
+- Define interfaces for data structures
+- Type component props
+
+## REFERENCE FILES
+
+Before we start, please read:
+1. `.claude/design-system.md` - Complete design tokens
+2. `.claude/component-patterns.md` - Code examples
+3. `.claude/folder-structure.md` - Project structure
+
+These files contain all the design system values, component patterns, and project organization details.
+
+## WHAT I NEED HELP WITH
+
+[Describe your specific task here, for example:]
+- "Set up the initial Astro project with Tailwind and React"
+- "Create the Hero section component"
+- "Build the services data file with TypeScript interfaces"
+- "Create the Button component with primary and secondary variants"
+
+## DEVELOPER NOTES
+
+**What I Handle Separately:**
+- Email API integration (no need for Resend, Nodemailer, etc.)
+- Form submission logic
+- Deployment configuration
+- Analytics
+
+**Available Assets:**
+- Logo with red/black/cyan branding
+- Professional photos (client in red hard hat)
+- Brand identity defined
+
+Ready to start! Please confirm you've understood the context and let me know if you need clarification on anything before we begin.
+
+---
+
+## QUICK REFERENCE
+
+**Current Phase:** Foundation setup
+**Next Steps:** [Your current goals]
+**Questions:** [Any specific questions or concerns]

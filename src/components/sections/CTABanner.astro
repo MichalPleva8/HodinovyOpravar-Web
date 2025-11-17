@@ -1,0 +1,32 @@
+---
+// CTA Banner Section - Call to Action
+import Button from '../ui/Button.astro';
+import { Phone } from 'lucide-react';
+---
+
+<section class="py-16 lg:py-20 px-6 bg-primary text-white">
+  <div class="container mx-auto max-w-4xl text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+      Máte problém? Vyriešime ho ešte dnes!
+    </h2>
+    <p class="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
+      Kontaktujte nás telefonicky alebo cez formulár a my sa vám ozveme čo najskôr.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a
+        href="tel:+421903566644"
+        class="inline-flex items-center gap-3 text-xl md:text-2xl font-bold hover:underline transition-all group"
+      >
+        <Phone className="w-7 h-7 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
+        0903 56 66 44
+      </a>
+
+      <span class="text-white/70 hidden sm:inline">alebo</span>
+
+      <Button href="/kontakt" variant="primary-white" size="lg">
+        Získať cenovú ponuku
+      </Button>
+    </div>
+  </div>
+</section>

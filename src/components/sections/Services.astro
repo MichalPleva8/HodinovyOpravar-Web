@@ -1,0 +1,50 @@
+---
+// Services Section - Services Grid
+import ServiceCard from '../ui/ServiceCard.astro';
+import Button from '../ui/Button.astro';
+import type { Service } from '../../data/services';
+
+interface Props {
+  services: Service[];
+  featured?: boolean;
+}
+
+const { services, featured = false } = Astro.props;
+
+// If featured, show only first 6 services
+const displayedServices = featured ? services.slice(0, 6) : services;
+---
+
+<section class="py-20 lg:py-32 px-6 bg-white">
+  <div class="container mx-auto max-w-7xl">
+    <!-- Section Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <p class="text-primary font-medium text-sm uppercase tracking-wide mb-2">
+        NAŠE SLUŽBY
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold text-neutral-800 mb-4">
+        Široká škála služieb
+      </h2>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+        Poskytujeme komplexné opravárenské služby pre váš domov alebo firmu.
+        Od vody a kúrenia až po elektro práce a opravy.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      {displayedServices.map(service => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+
+    <!-- CTA - Only show if featured (homepage) -->
+    {featured && (
+      <div class="text-center">
+        <Button href="/sluzby" variant="primary" size="lg">
+          Zobraziť všetky služby
+        </Button>
+      </div>
+    )}
+  </div>
+</section>

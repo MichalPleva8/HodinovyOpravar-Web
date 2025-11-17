@@ -1,0 +1,56 @@
+---
+// Stats Section - Business Statistics
+import Button from '../ui/Button.astro';
+import type { Stats } from '../../data/stats';
+
+interface Props {
+  data: Stats;
+}
+
+const { data } = Astro.props;
+
+const stats = [
+  { label: 'Rokov skúseností', value: `${data.yearsExperience}+` },
+  { label: 'Spokojných zákazníkov', value: `${data.happyClients}+` },
+  { label: 'Dokončených projektov', value: `${data.projectsCompleted}+` },
+  { label: 'Služieb', value: `${data.servicesOffered}+` },
+];
+---
+
+<section class="py-20 lg:py-32 px-6 bg-neutral-800 text-white">
+  <div class="container mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Content -->
+      <div>
+        <p class="text-primary font-medium text-sm uppercase tracking-wide mb-4">
+          NAŠE SKÚSENOSTI
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+          Zameriavame sa na spokojnosť zákazníka a kvalitu
+        </h2>
+        <p class="text-lg text-neutral-300 mb-8 leading-relaxed">
+          S viac ako 15 rokmi skúseností v odvetví poskytujeme profesionálne služby,
+          na ktoré sa môžete spoľahnúť. Každý projekt realizujeme s maximálnou
+          precíznosťou a férovou cenou.
+        </p>
+        <Button href="/kontakt" variant="primary" size="lg">
+          Získať cenovú ponuku
+        </Button>
+      </div>
+
+      <!-- Right: Stats Grid -->
+      <div class="grid grid-cols-2 gap-8">
+        {stats.map(stat => (
+          <div class="text-center lg:text-left">
+            <p class="text-4xl md:text-5xl font-bold text-primary mb-2">
+              {stat.value}
+            </p>
+            <p class="text-neutral-400 text-sm md:text-base">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

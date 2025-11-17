@@ -1,16 +1,30 @@
 ---
+// Homepage - Hodinový opravár
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Stats from '../components/sections/Stats.astro';
+import Services from '../components/sections/Services.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
 
+import { services } from '../data/services';
+import { testimonials } from '../data/testimonials';
+import { stats } from '../data/stats';
+
+// Show first 6 services on homepage
+const featuredServices = services.slice(0, 6);
+
+// Show first 6 testimonials on homepage
+const featuredTestimonials = testimonials.slice(0, 6);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Hodinový opravár - Žilina a okolie | Spoľahlivé opravárenské služby"
+  description="Profesionálne opravárenské služby v Žiline a okolí. Voda, kúrenie, elektrika, opravy áut a bicyklov, maľovanie a mnoho ďalších služieb. Zavolajte 0903 56 66 44"
+>
+  <Hero />
+  <Stats data={stats} />
+  <Services services={featuredServices} />
+  <CTABanner />
+  <Testimonials testimonials={featuredTestimonials} />
+</BaseLayout>

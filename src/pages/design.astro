@@ -1,0 +1,45 @@
+---
+import Button from "../components/ui/Button.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Hodinový opravár - Žilina a okolie | Spoľahlivé opravárenské služby"
+  description="Profesionálne opravárenské služby v Žiline a okolí. Voda, kúrenie, elektrika, opravy áut a bicyklov, maľovanie a mnoho ďalších služieb. Zavolajte 0903 56 66 44"
+>
+    <div class="relative py-60 px-48">
+        <h1 class="text-6xl font-bold text-neutral-800">Dizajnový systém</h1>
+
+        <div class="flex flex-col mt-10 gap-6">
+            <!-- Primary button -->
+            <div class="flex flex-row items-center gap-2">
+                <Button href="#" size='lg'>Large</Button>
+                <Button size='md'>Medium</Button>
+                <Button size='sm'>Small</Button>
+            </div>
+
+            <!-- Secondary button -->
+            <div class="flex flex-row items-center gap-2">
+                <Button href="#" variant="secondary" size='lg'>Large</Button>
+                <Button variant="secondary" size='md'>Medium</Button>
+                <Button variant="secondary" size='sm'>Small</Button>
+            </div>
+
+            <div class="flex flex-col bg-gray-900 p-6 gap-6 rounded-sm ">
+                <!-- Primary button (white) -->
+                <div class="flex flex-row items-center gap-2">
+                    <Button href="#" variant="primary-white" size='lg'>Large</Button>
+                    <Button variant="primary-white" size='md'>Medium</Button>
+                    <Button variant="primary-white" size='sm'>Small</Button>
+                </div>
+
+                <!-- Sedondary button (white) -->
+                <div class="flex flex-row items-center gap-2">
+                    <Button href="#" variant="secondary-white" size='lg'>Large</Button>
+                    <Button variant="secondary-white" size='md'>Medium</Button>
+                    <Button variant="secondary-white" size='sm'>Small</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>

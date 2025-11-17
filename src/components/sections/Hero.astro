@@ -1,0 +1,56 @@
+---
+// Hero Section - Homepage
+import Button from '../ui/Button.astro';
+import { Phone, MapPin } from 'lucide-react';
+---
+
+<section class="relative bg-neutral-200 py-20 lg:py-32 px-6">
+  <div class="container mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Content -->
+      <div>
+        <p class="text-primary font-medium text-sm uppercase tracking-wide mb-4">
+          HODINOVÝ OPRAVÁR
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-800 mb-6 leading-tight">
+          Váš spoľahlivý opravár v Žiline
+        </h1>
+        <p class="text-lg md:text-xl text-neutral-600 mb-8 leading-relaxed">
+          Poskytujeme komplexné opravárenské služby pre váš domov alebo firmu.
+          Voda, elektrika, kúrenie, opravy áut a bicyklov, maľovanie a mnoho ďalších služieb.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <Button href="tel:+421903566644" variant="primary" size="lg">
+            Zavolať teraz
+          </Button>
+          <Button href="/sluzby" variant="secondary" size="lg">
+            Naše služby
+          </Button>
+        </div>
+
+        <!-- Quick Contact Info -->
+        <div class="flex flex-col sm:flex-row gap-6 text-sm text-neutral-600">
+          <div class="flex items-center gap-2">
+            <Phone className="w-5 h-5 text-primary" />
+            <span>0903 56 66 44</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <MapPin className="w-5 h-5 text-primary" />
+            <span>Žilina a okolie</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="relative h-full max-h-[600px] lg:max-h-[700px]">
+        <img
+          src="/images/hero/roman-half-cut.png"
+          alt="Profesionálny opravár - Hodinový opravár Žilina"
+          class="w-full h-full object-contain object-center rounded-lg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
