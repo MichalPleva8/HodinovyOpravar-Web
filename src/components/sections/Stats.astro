@@ -22,13 +22,9 @@ const stats = [
 		<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
 			<!-- Left: Content -->
 			<div>
-				<p class="text-primary mb-4 text-sm font-medium tracking-wide uppercase">
-					NAŠE SKÚSENOSTI
-				</p>
-				<h2 class="mb-6 text-3xl leading-tight font-bold md:text-4xl">
-					Zameriavame sa na spokojnosť zákazníka a kvalitu
-				</h2>
-				<p class="mb-8 text-lg leading-relaxed text-neutral-300">
+				<p class="text-primary text-subtitle mb-4 uppercase tracking-wide">NAŠE SKÚSENOSTI</p>
+				<h2 class="text-h2 mb-6">Zameriavame sa na spokojnosť zákazníka a kvalitu</h2>
+				<p class="text-body mb-8 text-neutral-300">
 					S viac ako 15 rokmi skúseností v odvetví poskytujeme profesionálne služby, na
 					ktoré sa môžete spoľahnúť. Každý projekt realizujeme s maximálnou precíznosťou a
 					férovou cenou.
@@ -41,10 +37,8 @@ const stats = [
 				{
 					stats.map((stat) => (
 						<div class="text-center lg:text-left">
-							<p class="text-primary mb-2 text-4xl font-bold md:text-5xl">
-								{stat.value}
-							</p>
-							<p class="text-sm text-neutral-400 md:text-base">{stat.label}</p>
+							<p class="text-primary text-display-2 mb-2">{stat.value}</p>
+							<p class="text-body-sm text-neutral-400">{stat.label}</p>
 						</div>
 					))
 				}

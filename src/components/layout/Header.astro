@@ -26,7 +26,7 @@ const currentPath = Astro.url.pathname
 						<li>
 							<a
 								href={item.href}
-								class={`text-base font-medium transition-colors ${
+								class={`text-body font-medium transition-colors ${
 									currentPath === item.href
 										? 'text-primary font-bold'
 										: 'hover:text-primary text-neutral-700'
@@ -68,7 +68,7 @@ const currentPath = Astro.url.pathname
 						<li>
 							<a
 								href={item.href}
-								class={`block rounded-lg px-4 py-2 text-base font-medium transition-colors ${
+								class={`text-body block rounded-lg px-4 py-2 font-medium transition-colors ${
 									currentPath === item.href
 										? 'bg-primary-light text-primary font-bold'
 										: 'text-neutral-700 hover:bg-neutral-200'

@@ -54,47 +54,47 @@
 	/* Font Family */
 	--font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
 
-	/* Display Headings (Hero/Featured) */
+	/* Display Headings (Hero/Featured) - Desktop sizes */
 	--font-size-display-1: 68px;
-	--line-height-display-1: 1.088em;
+	--line-height-display-1: 1.088;
 
 	--font-size-display-2: 48px;
-	--line-height-display-2: 1.208em;
+	--line-height-display-2: 1.208;
 
 	--font-size-display-3: 28px;
-	--line-height-display-3: 1.286em;
+	--line-height-display-3: 1.286;
 
 	--font-size-display-4: 24px;
-	--line-height-display-4: 1.417em;
+	--line-height-display-4: 1.417;
 
-	/* Standard Headings */
+	/* Standard Headings - Desktop sizes */
 	--font-size-h1: 65px;
-	--line-height-h1: 1.077em;
+	--line-height-h1: 1.077;
 
 	--font-size-h2: 38px;
-	--line-height-h2: 1.316em;
+	--line-height-h2: 1.316;
 
 	--font-size-h3: 24px;
-	--line-height-h3: 1.417em;
+	--line-height-h3: 1.417;
 
 	--font-size-h4: 22px;
-	--line-height-h4: 1.273em;
+	--line-height-h4: 1.273;
 
 	--font-size-h5: 18px;
-	--line-height-h5: 1.333em;
+	--line-height-h5: 1.333;
 
 	--font-size-h6: 16px;
-	--line-height-h6: 1.375em;
+	--line-height-h6: 1.375;
 
 	/* Body Text */
 	--font-size-body-lg: 24px;
-	--line-height-body-lg: 1.583em;
+	--line-height-body-lg: 1.583;
 
 	--font-size-body: 18px;
-	--line-height-body: 1.667em;
+	--line-height-body: 1.667;
 
 	--font-size-body-sm: 14px;
-	--line-height-body-sm: 1.714em;
+	--line-height-body-sm: 1.714;
 
 	/* ========================================
      SPACING SYSTEM (8px grid)
@@ -203,59 +203,266 @@
    ======================================== */
 
 @layer utilities {
-	/* Typography Utilities */
+	/* ========================================
+	   DISPLAY HEADINGS (Responsive)
+	   Mobile → Tablet (md:768px) → Desktop (lg:1024px)
+	   ======================================== */
+
+	/* Display 1: 48px → 56px → 68px */
 	.text-display-1 {
-		font-size: var(--font-size-display-1);
+		font-size: 48px;
 		line-height: var(--line-height-display-1);
 		font-weight: 700;
 	}
 
+	@media (min-width: 768px) {
+		.text-display-1 {
+			font-size: 56px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-display-1 {
+			font-size: var(--font-size-display-1); /* 68px */
+		}
+	}
+
+	/* Display 2: 32px → 40px → 48px */
 	.text-display-2 {
-		font-size: var(--font-size-display-2);
+		font-size: 32px;
 		line-height: var(--line-height-display-2);
 		font-weight: 700;
 	}
 
+	@media (min-width: 768px) {
+		.text-display-2 {
+			font-size: 40px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-display-2 {
+			font-size: var(--font-size-display-2); /* 48px */
+		}
+	}
+
+	/* Display 3: 22px → 24px → 28px */
+	.text-display-3 {
+		font-size: 22px;
+		line-height: var(--line-height-display-3);
+		font-weight: 700;
+	}
+
+	@media (min-width: 768px) {
+		.text-display-3 {
+			font-size: 24px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-display-3 {
+			font-size: var(--font-size-display-3); /* 28px */
+		}
+	}
+
+	/* Display 4: 20px → 22px → 24px */
+	.text-display-4 {
+		font-size: 20px;
+		line-height: var(--line-height-display-4);
+		font-weight: 700;
+	}
+
+	@media (min-width: 768px) {
+		.text-display-4 {
+			font-size: 22px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-display-4 {
+			font-size: var(--font-size-display-4); /* 24px */
+		}
+	}
+
+	/* ========================================
+	   STANDARD HEADINGS (Responsive)
+	   Mobile → Tablet (md:768px) → Desktop (lg:1024px)
+	   ======================================== */
+
+	/* H1: 36px → 48px → 65px */
 	.text-h1 {
-		font-size: var(--font-size-h1);
+		font-size: 36px;
 		line-height: var(--line-height-h1);
 		font-weight: 700;
 	}
 
+	@media (min-width: 768px) {
+		.text-h1 {
+			font-size: 48px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-h1 {
+			font-size: var(--font-size-h1); /* 65px */
+		}
+	}
+
+	/* H2: 28px → 32px → 38px */
 	.text-h2 {
-		font-size: var(--font-size-h2);
+		font-size: 28px;
 		line-height: var(--line-height-h2);
 		font-weight: 700;
 	}
 
+	@media (min-width: 768px) {
+		.text-h2 {
+			font-size: 32px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-h2 {
+			font-size: var(--font-size-h2); /* 38px */
+		}
+	}
+
+	/* H3: 20px → 22px → 24px */
 	.text-h3 {
-		font-size: var(--font-size-h3);
+		font-size: 20px;
 		line-height: var(--line-height-h3);
 		font-weight: 700;
 	}
 
+	@media (min-width: 768px) {
+		.text-h3 {
+			font-size: 22px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-h3 {
+			font-size: var(--font-size-h3); /* 24px */
+		}
+	}
+
+	/* H4: 18px → 20px → 22px */
 	.text-h4 {
-		font-size: var(--font-size-h4);
+		font-size: 18px;
 		line-height: var(--line-height-h4);
 		font-weight: 700;
 	}
 
+	@media (min-width: 768px) {
+		.text-h4 {
+			font-size: 20px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-h4 {
+			font-size: var(--font-size-h4); /* 22px */
+		}
+	}
+
+	/* H5: 16px → 17px → 18px */
+	.text-h5 {
+		font-size: 16px;
+		line-height: var(--line-height-h5);
+		font-weight: 700;
+	}
+
+	@media (min-width: 768px) {
+		.text-h5 {
+			font-size: 17px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-h5 {
+			font-size: var(--font-size-h5); /* 18px */
+		}
+	}
+
+	/* H6: 14px → 15px → 16px */
+	.text-h6 {
+		font-size: 14px;
+		line-height: var(--line-height-h6);
+		font-weight: 700;
+	}
+
+	@media (min-width: 768px) {
+		.text-h6 {
+			font-size: 15px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.text-h6 {
+			font-size: var(--font-size-h6); /* 16px */
+		}
+	}
+
+	/* ========================================
+	   BODY TEXT (Responsive)
+	   Mobile → Desktop (md:768px)
+	   ======================================== */
+
+	/* Body Large: 20px → 24px */
 	.text-body-lg {
-		font-size: var(--font-size-body-lg);
+		font-size: 20px;
 		line-height: var(--line-height-body-lg);
+		font-weight: 400;
 	}
 
+	@media (min-width: 768px) {
+		.text-body-lg {
+			font-size: var(--font-size-body-lg); /* 24px */
+		}
+	}
+
+	/* Body Default: 16px → 18px */
 	.text-body {
-		font-size: var(--font-size-body);
+		font-size: 16px;
 		line-height: var(--line-height-body);
+		font-weight: 400;
 	}
 
+	@media (min-width: 768px) {
+		.text-body {
+			font-size: var(--font-size-body); /* 18px */
+		}
+	}
+
+	/* Body Small: 14px (no scaling) */
 	.text-body-sm {
-		font-size: var(--font-size-body-sm);
+		font-size: var(--font-size-body-sm); /* 14px */
 		line-height: var(--line-height-body-sm);
+		font-weight: 400;
 	}
 
-	/* Shadow Utilities */
+	/* ========================================
+	   SUBTITLE (Section Labels - Uppercase)
+	   Mobile → Desktop (md:768px)
+	   ======================================== */
+
+	/* Subtitle: 18px → 20px */
+	.text-subtitle {
+		font-size: 18px;
+		line-height: 1.1;
+		font-weight: 700;
+	}
+
+	@media (min-width: 768px) {
+		.text-subtitle {
+			font-size: 20px;
+		}
+	}
+
+	/* ========================================
+	   SHADOW UTILITIES
+	   ======================================== */
+
 	.shadow-card {
 		box-shadow: var(--shadow-card);
 	}
@@ -268,7 +475,10 @@
 		box-shadow: var(--shadow-button);
 	}
 
-	/* Border Radius Utilities */
+	/* ========================================
+	   BORDER RADIUS UTILITIES
+	   ======================================== */
+
 	.rounded-button {
 		border-radius: var(--radius-button);
 	}

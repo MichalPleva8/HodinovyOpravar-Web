@@ -57,12 +57,12 @@ const { title, description, icon, href, image } = Astro.props
 		)
 	}
 
-	<h3 class="text-h4 mb-2 font-bold text-neutral-800">{title}</h3>
-	<p class="text-body-sm mb-4 line-clamp-3 flex-grow text-neutral-600">{description}</p>
+	<h3 class="text-h4 mb-2 text-neutral-800">{title}</h3>
+	<p class="text-body mb-4 line-clamp-3 flex-grow text-neutral-600">{description}</p>
 
 	<a
 		href={href}
-		class="text-primary hover:text-primary-hover group/link mt-auto inline-flex cursor-pointer items-center gap-2 font-medium"
+		class="text-primary hover:text-primary-hover text-body-sm group/link mt-auto inline-flex cursor-pointer items-center gap-2 font-medium"
 	>
 		Zistiť viac
 		<svg
