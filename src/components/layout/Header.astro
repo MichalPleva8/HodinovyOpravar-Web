@@ -1,104 +1,108 @@
 ---
 // src/components/layout/Header.astro
-import { Phone, Menu } from 'lucide-react';
+import { Phone, Menu } from 'lucide-react'
 
 const navigation = [
-  { name: 'Domov', href: '/' },
-  { name: 'Služby', href: '/sluzby' },
-  { name: 'Kontakt', href: '/kontakt' },
-];
+	{ name: 'Domov', href: '/' },
+	{ name: 'Služby', href: '/sluzby' },
+	{ name: 'Kontakt', href: '/kontakt' },
+]
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname
 ---
 
 <header class="sticky top-0 z-50 bg-white shadow-sm">
-  <nav class="container mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center">
-        <img src="/images/logo.png" alt="Hodinový opravár" class="h-12" />
-      </a>
+	<nav class="container mx-auto px-6 py-4">
+		<div class="flex items-center justify-between">
+			<!-- Logo -->
+			<a href="/" class="flex items-center">
+				<img src="/images/logo.png" alt="Hodinový opravár" class="h-12" />
+			</a>
 
-      <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center gap-8">
-        {navigation.map(item => (
-          <li>
-            <a
-              href={item.href}
-              class={`text-base font-medium transition-colors ${
-                currentPath === item.href
-                  ? 'text-primary font-bold'
-                  : 'text-neutral-700 hover:text-primary'
-              }`}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+			<!-- Desktop Navigation -->
+			<ul class="hidden items-center gap-8 md:flex">
+				{
+					navigation.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								class={`text-base font-medium transition-colors ${
+									currentPath === item.href
+										? 'text-primary font-bold'
+										: 'hover:text-primary text-neutral-700'
+								}`}
+							>
+								{item.name}
+							</a>
+						</li>
+					))
+				}
+			</ul>
 
-      <!-- CTA Button (Desktop) -->
-      <div class="hidden md:block">
-        <a
-          href="tel:+421903566644"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-hover text-white font-medium rounded-lg transition-all duration-200 shadow-button hover:shadow-button-hover hover:-translate-y-0.5"
-        >
-          <Phone className="w-5 h-5" />
-          Zavolať teraz
-        </a>
-      </div>
+			<!-- CTA Button (Desktop) -->
+			<div class="hidden md:block">
+				<a
+					href="tel:+421903566644"
+					class="bg-primary hover:bg-primary-hover shadow-button hover:shadow-button-hover inline-flex items-center gap-2 rounded-lg px-6 py-3 font-medium text-white transition-all duration-200 hover:-translate-y-0.5"
+				>
+					<Phone className="h-5 w-5" />
+					Zavolať teraz
+				</a>
+			</div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        class="md:hidden p-2 text-neutral-700 hover:text-primary transition-colors"
-        aria-label="Otvoriť menu"
-        id="mobile-menu-button"
-      >
-        <Menu className="w-6 h-6" />
-      </button>
-    </div>
+			<!-- Mobile Menu Button -->
+			<button
+				class="hover:text-primary p-2 text-neutral-700 transition-colors md:hidden"
+				aria-label="Otvoriť menu"
+				id="mobile-menu-button"
+			>
+				<Menu className="h-6 w-6" />
+			</button>
+		</div>
 
-    <!-- Mobile Navigation (hidden by default, toggle with JS) -->
-    <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
-      <ul class="flex flex-col space-y-2">
-        {navigation.map(item => (
-          <li>
-            <a
-              href={item.href}
-              class={`block px-4 py-2 rounded-lg text-base font-medium transition-colors ${
-                currentPath === item.href
-                  ? 'bg-primary-light text-primary font-bold'
-                  : 'text-neutral-700 hover:bg-neutral-200'
-              }`}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+		<!-- Mobile Navigation (hidden by default, toggle with JS) -->
+		<div id="mobile-menu" class="hidden pt-4 pb-2 md:hidden">
+			<ul class="flex flex-col space-y-2">
+				{
+					navigation.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								class={`block rounded-lg px-4 py-2 text-base font-medium transition-colors ${
+									currentPath === item.href
+										? 'bg-primary-light text-primary font-bold'
+										: 'text-neutral-700 hover:bg-neutral-200'
+								}`}
+							>
+								{item.name}
+							</a>
+						</li>
+					))
+				}
+			</ul>
 
-      <!-- Mobile CTA Button -->
-      <div class="mt-4 px-4">
-        <a
-          href="tel:+421903566644"
-          class="flex items-center justify-center gap-2 w-full px-6 py-3 bg-primary hover:bg-primary-hover text-white font-medium rounded-lg transition-all duration-200"
-        >
-          <Phone className="w-5 h-5" />
-          Zavolať teraz
-        </a>
-      </div>
-    </div>
-  </nav>
+			<!-- Mobile CTA Button -->
+			<div class="mt-4 px-4">
+				<a
+					href="tel:+421903566644"
+					class="bg-primary hover:bg-primary-hover flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium text-white transition-all duration-200"
+				>
+					<Phone className="h-5 w-5" />
+					Zavolať teraz
+				</a>
+			</div>
+		</div>
+	</nav>
 </header>
 
 <script>
-  // Simple mobile menu toggle
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+	// Simple mobile menu toggle
+	document.addEventListener('DOMContentLoaded', () => {
+		const menuButton = document.getElementById('mobile-menu-button')
+		const mobileMenu = document.getElementById('mobile-menu')
 
-    menuButton?.addEventListener('click', () => {
-      mobileMenu?.classList.toggle('hidden');
-    });
-  });
+		menuButton?.addEventListener('click', () => {
+			mobileMenu?.classList.toggle('hidden')
+		})
+	})
 </script>

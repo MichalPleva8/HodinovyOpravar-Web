@@ -51,6 +51,7 @@ public/
 ```
 
 **Notes:**
+
 - Files in `/public/` are served as-is
 - Reference them with `/images/filename.jpg` in code
 - No optimization, so keep images reasonably sized
@@ -166,6 +167,7 @@ data/
 **Structure**: Each exports interfaces and data arrays/objects
 
 **Example**:
+
 ```typescript
 // services.ts
 export interface Service {
@@ -174,7 +176,9 @@ export interface Service {
   // ... more fields
 }
 
-export const services: Service[] = [ /* ... */ ];
+export const services: Service[] = [
+  /* ... */
+];
 ```
 
 ---
@@ -189,6 +193,7 @@ layouts/
 **Purpose**: Page-level layouts that wrap content
 
 **BaseLayout.astro includes**:
+
 - `<html>`, `<head>`, `<body>` tags
 - Meta tags, SEO
 - Font imports
@@ -214,23 +219,28 @@ pages/
 **Purpose**: File-based routing (each file = a route)
 
 ### Homepage (`index.astro`)
+
 - URL: `/`
 - Sections: Hero, Stats, Services, Gallery, Testimonials, CTA
 
 ### Contact Page (`kontakt.astro`)
+
 - URL: `/kontakt`
 - Sections: Hero, Contact form, Info, Service areas, FAQ
 
 ### Services Overview (`sluzby/index.astro`)
+
 - URL: `/sluzby`
 - Content: All services in grid layout
 
 ### Service Detail (`sluzby/[slug].astro`)
+
 - URL: `/sluzby/voda-kurenie`, `/sluzby/elektrika`, etc.
 - Dynamic routing using `getStaticPaths()`
 - Content: Individual service details
 
 ### API Routes (`api/`)
+
 - Contact form endpoint (handled by developer)
 - Returns JSON responses
 
@@ -244,6 +254,7 @@ styles/
 ```
 
 **global.css contents**:
+
 ```css
 @tailwind base;
 @tailwind components;
@@ -266,27 +277,28 @@ styles/
 ## Configuration Files
 
 ### `astro.config.mjs`
+
 ```javascript
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    react(),
-  ],
+  integrations: [tailwind(), react()],
   site: 'https://hodinovyopravar.sk',
 });
 ```
 
 ### `tailwind.config.mjs`
+
 Complete Tailwind configuration with design system tokens (see design-system.md)
 
 ### `tsconfig.json`
+
 TypeScript configuration for Astro
 
 ### `package.json`
+
 Dependencies and scripts
 
 ---
@@ -387,19 +399,23 @@ hodinovy-opravar/
 ## File Naming Conventions
 
 ### Components
+
 - **PascalCase** for React components: `ContactForm.tsx`
 - **PascalCase** for Astro components: `Hero.astro`, `Button.astro`
 - Descriptive names: `ServiceCard.astro` not `Card2.astro`
 
 ### Data Files
+
 - **camelCase**: `services.ts`, `testimonials.ts`
 - Plural for collections: `services.ts` (not `service.ts`)
 
 ### Pages
+
 - **kebab-case** for routes: `kontakt.astro`, `service-detail.astro`
 - Match URL structure: `/sluzby` = `sluzby/index.astro`
 
 ### Images
+
 - **kebab-case**: `hero-handyman.png`, `service-voda.jpg`
 - Descriptive: `service-elektrika.jpg` not `img-02.jpg`
 
@@ -408,6 +424,7 @@ hodinovy-opravar/
 ## Growth Considerations
 
 ### If You Add More Pages Later:
+
 ```
 pages/
 ├── o-nas.astro                     # About page
@@ -418,6 +435,7 @@ pages/
 ```
 
 ### If You Add More Components:
+
 ```
 components/ui/
 ├── Avatar.astro                    # User avatar
@@ -426,6 +444,7 @@ components/ui/
 ```
 
 ### If You Add CMS Later:
+
 ```
 src/
 ├── content/                        # Astro Content Collections
@@ -439,17 +458,20 @@ src/
 ## Important Notes
 
 ### Do NOT Create:
+
 - ❌ Separate CSS files (use Tailwind in components)
 - ❌ `lib/` or `utils/` folders yet (wait until needed)
 - ❌ `hooks/` folder (React hooks live with components)
 - ❌ `types/` folder (types live with data files)
 
 ### Keep Flat Until Necessary:
+
 - Start simple, add structure as needed
 - Don't over-engineer at the beginning
 - Components can always be reorganized later
 
 ### Remember:
+
 - **Images** → `/public/images/`
 - **Data** → `src/data/`
 - **Static pages** → `src/pages/`

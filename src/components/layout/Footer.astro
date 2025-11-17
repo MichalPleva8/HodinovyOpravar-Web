@@ -1,107 +1,112 @@
 ---
 // src/components/layout/Footer.astro
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react'
 
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear()
 
 const navigation = {
-  main: [
-    { name: 'Domov', href: '/' },
-    { name: 'Služby', href: '/sluzby' },
-    { name: 'Kontakt', href: '/kontakt' },
-  ],
-  social: [
-    { name: 'Facebook', href: '#', icon: Facebook },
-    { name: 'Instagram', href: '#', icon: Instagram },
-  ],
-};
+	main: [
+		{ name: 'Domov', href: '/' },
+		{ name: 'Služby', href: '/sluzby' },
+		{ name: 'Kontakt', href: '/kontakt' },
+	],
+	social: [
+		{ name: 'Facebook', href: '#', icon: Facebook },
+		{ name: 'Instagram', href: '#', icon: Instagram },
+	],
+}
 ---
 
 <footer class="bg-neutral-800 text-white">
-  <div class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-      <!-- Logo & Description -->
-      <div>
-        <img src="/images/logo.png" alt="Hodinový opravár" class="h-12 mb-4" />
-        <p class="text-neutral-400 text-sm leading-relaxed">
-          Spoľahlivé opravárenské služby v Žiline a okolí. Voda, elektrika, kúrenie a mnoho ďalších služieb.
-        </p>
+	<div class="container mx-auto px-6 py-12">
+		<div class="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
+			<!-- Logo & Description -->
+			<div>
+				<img src="/images/logo.png" alt="Hodinový opravár" class="mb-4 h-12" />
+				<p class="text-sm leading-relaxed text-neutral-400">
+					Spoľahlivé opravárenské služby v Žiline a okolí. Voda, elektrika, kúrenie a
+					mnoho ďalších služieb.
+				</p>
 
-        <!-- Social Links -->
-        <div class="flex gap-3 mt-6">
-          {navigation.social.map(item => {
-            const Icon = item.icon;
-            return (
-              <a
-                href={item.href}
-                class="w-10 h-10 rounded-full bg-neutral-700 hover:bg-primary flex items-center justify-center transition-colors duration-200"
-                aria-label={item.name}
-              >
-                <Icon className="w-5 h-5" />
-              </a>
-            );
-          })}
-        </div>
-      </div>
+				<!-- Social Links -->
+				<div class="mt-6 flex gap-3">
+					{
+						navigation.social.map((item) => {
+							const Icon = item.icon
+							return (
+								<a
+									href={item.href}
+									class="hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full bg-neutral-700 transition-colors duration-200"
+									aria-label={item.name}
+								>
+									<Icon className="w-5 h-5" />
+								</a>
+							)
+						})
+					}
+				</div>
+			</div>
 
-      <!-- Quick Links -->
-      <div>
-        <h3 class="font-bold text-lg mb-4">Rýchle odkazy</h3>
-        <ul class="space-y-2">
-          {navigation.main.map(item => (
-            <li>
-              <a
-                href={item.href}
-                class="text-neutral-400 hover:text-white transition-colors duration-200 inline-block"
-              >
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+			<!-- Quick Links -->
+			<div>
+				<h3 class="mb-4 text-lg font-bold">Rýchle odkazy</h3>
+				<ul class="space-y-2">
+					{
+						navigation.main.map((item) => (
+							<li>
+								<a
+									href={item.href}
+									class="inline-block text-neutral-400 transition-colors duration-200 hover:text-white"
+								>
+									{item.name}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
 
-      <!-- Contact -->
-      <div>
-        <h3 class="font-bold text-lg mb-4">Kontakt</h3>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-3">
-            <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-            <div>
-              <a
-                href="tel:+421903566644"
-                class="text-neutral-400 hover:text-white transition-colors duration-200"
-              >
-                0903 56 66 44
-              </a>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-            <div>
-              <a
-                href="mailto:info@hodinovyopravar.sk"
-                class="text-neutral-400 hover:text-white transition-colors duration-200"
-              >
-                info@hodinovyopravar.sk
-              </a>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-            <div>
-              <span class="text-neutral-400">Žilina a okolie</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+			<!-- Contact -->
+			<div>
+				<h3 class="mb-4 text-lg font-bold">Kontakt</h3>
+				<ul class="space-y-3">
+					<li class="flex items-start gap-3">
+						<Phone className="text-primary mt-0.5 h-5 w-5 flex-shrink-0" />
+						<div>
+							<a
+								href="tel:+421903566644"
+								class="text-neutral-400 transition-colors duration-200 hover:text-white"
+							>
+								0903 56 66 44
+							</a>
+						</div>
+					</li>
+					<li class="flex items-start gap-3">
+						<Mail className="text-primary mt-0.5 h-5 w-5 flex-shrink-0" />
+						<div>
+							<a
+								href="mailto:info@hodinovyopravar.sk"
+								class="text-neutral-400 transition-colors duration-200 hover:text-white"
+							>
+								info@hodinovyopravar.sk
+							</a>
+						</div>
+					</li>
+					<li class="flex items-start gap-3">
+						<MapPin className="text-primary mt-0.5 h-5 w-5 flex-shrink-0" />
+						<div>
+							<span class="text-neutral-400">Žilina a okolie</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-    <!-- Bottom Bar -->
-    <div class="border-t border-neutral-700 pt-8 text-center">
-      <p class="text-neutral-400 text-sm">
-        &copy; {currentYear} Hodinový opravár. Všetky práva vyhradené.
-      </p>
-    </div>
-  </div>
+		<!-- Bottom Bar -->
+		<div class="border-t border-neutral-700 pt-8 text-center">
+			<p class="text-sm text-neutral-400">
+				&copy; {currentYear} Hodinový opravár. Všetky práva vyhradené.
+			</p>
+		</div>
+	</div>
 </footer>

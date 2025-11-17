@@ -1,173 +1,173 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  /* ========================================
+	/* ========================================
      COLOR PALETTE - Design System
      ======================================== */
 
-  /* Primary Colors */
-  --color-primary: #3083FF;
-  --color-primary-hover: #1871F6;
-  --color-primary-light: #F4F9FF;
+	/* Primary Colors */
+	--color-primary: #3083ff;
+	--color-primary-hover: #1871f6;
+	--color-primary-light: #f4f9ff;
 
-  /* Secondary Colors */
-  --color-secondary-yellow: #FDB52A;
+	/* Secondary Colors */
+	--color-secondary-yellow: #fdb52a;
 
-  /* Neutral Colors (Grayscale) */
-  --color-neutral-100: #FFFFFF;
-  --color-neutral-200: #F7F7FC;
-  --color-neutral-300: #EFF0F6;
-  --color-neutral-400: #DCE6FA;
-  --color-neutral-500: #A0A8BD;
-  --color-neutral-600: #6E7891;
-  --color-neutral-700: #455266;
-  --color-neutral-800: #182944;
+	/* Neutral Colors (Grayscale) */
+	--color-neutral-100: #ffffff;
+	--color-neutral-200: #f7f7fc;
+	--color-neutral-300: #eff0f6;
+	--color-neutral-400: #dce6fa;
+	--color-neutral-500: #a0a8bd;
+	--color-neutral-600: #6e7891;
+	--color-neutral-700: #455266;
+	--color-neutral-800: #182944;
 
-  /* System Colors - Blues */
-  --color-blue-100: #EAF4FF;
-  --color-blue-200: #8FC3FF;
-  --color-blue-300: #1D88FE;
-  --color-blue-400: #086CD9;
+	/* System Colors - Blues */
+	--color-blue-100: #eaf4ff;
+	--color-blue-200: #8fc3ff;
+	--color-blue-300: #1d88fe;
+	--color-blue-400: #086cd9;
 
-  /* System Colors - Greens */
-  --color-green-100: #DEF2E6;
-  --color-green-200: #7FDCA4;
-  --color-green-300: #05C168;
-  --color-green-400: #11845B;
+	/* System Colors - Greens */
+	--color-green-100: #def2e6;
+	--color-green-200: #7fdca4;
+	--color-green-300: #05c168;
+	--color-green-400: #11845b;
 
-  /* System Colors - Reds */
-  --color-red-100: #FFEFF0;
-  --color-red-200: #FFBEC2;
-  --color-red-300: #FF5A65;
-  --color-red-400: #DC2B2B;
+	/* System Colors - Reds */
+	--color-red-100: #ffeff0;
+	--color-red-200: #ffbec2;
+	--color-red-300: #ff5a65;
+	--color-red-400: #dc2b2b;
 
-  /* System Colors - Oranges */
-  --color-orange-100: #FFF3E4;
-  --color-orange-200: #FFD19B;
-  --color-orange-300: #FF9E2C;
-  --color-orange-400: #D5691B;
+	/* System Colors - Oranges */
+	--color-orange-100: #fff3e4;
+	--color-orange-200: #ffd19b;
+	--color-orange-300: #ff9e2c;
+	--color-orange-400: #d5691b;
 
-  /* ========================================
+	/* ========================================
      TYPOGRAPHY SYSTEM
      ======================================== */
 
-  /* Font Family */
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+	/* Font Family */
+	--font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
 
-  /* Display Headings (Hero/Featured) */
-  --font-size-display-1: 68px;
-  --line-height-display-1: 1.088em;
+	/* Display Headings (Hero/Featured) */
+	--font-size-display-1: 68px;
+	--line-height-display-1: 1.088em;
 
-  --font-size-display-2: 48px;
-  --line-height-display-2: 1.208em;
+	--font-size-display-2: 48px;
+	--line-height-display-2: 1.208em;
 
-  --font-size-display-3: 28px;
-  --line-height-display-3: 1.286em;
+	--font-size-display-3: 28px;
+	--line-height-display-3: 1.286em;
 
-  --font-size-display-4: 24px;
-  --line-height-display-4: 1.417em;
+	--font-size-display-4: 24px;
+	--line-height-display-4: 1.417em;
 
-  /* Standard Headings */
-  --font-size-h1: 65px;
-  --line-height-h1: 1.077em;
+	/* Standard Headings */
+	--font-size-h1: 65px;
+	--line-height-h1: 1.077em;
 
-  --font-size-h2: 38px;
-  --line-height-h2: 1.316em;
+	--font-size-h2: 38px;
+	--line-height-h2: 1.316em;
 
-  --font-size-h3: 24px;
-  --line-height-h3: 1.417em;
+	--font-size-h3: 24px;
+	--line-height-h3: 1.417em;
 
-  --font-size-h4: 22px;
-  --line-height-h4: 1.273em;
+	--font-size-h4: 22px;
+	--line-height-h4: 1.273em;
 
-  --font-size-h5: 18px;
-  --line-height-h5: 1.333em;
+	--font-size-h5: 18px;
+	--line-height-h5: 1.333em;
 
-  --font-size-h6: 16px;
-  --line-height-h6: 1.375em;
+	--font-size-h6: 16px;
+	--line-height-h6: 1.375em;
 
-  /* Body Text */
-  --font-size-body-lg: 24px;
-  --line-height-body-lg: 1.583em;
+	/* Body Text */
+	--font-size-body-lg: 24px;
+	--line-height-body-lg: 1.583em;
 
-  --font-size-body: 18px;
-  --line-height-body: 1.667em;
+	--font-size-body: 18px;
+	--line-height-body: 1.667em;
 
-  --font-size-body-sm: 14px;
-  --line-height-body-sm: 1.714em;
+	--font-size-body-sm: 14px;
+	--line-height-body-sm: 1.714em;
 
-  /* ========================================
+	/* ========================================
      SPACING SYSTEM (8px grid)
      ======================================== */
 
-  --spacing-1: 4px;
-  --spacing-2: 8px;
-  --spacing-3: 12px;
-  --spacing-4: 16px;
-  --spacing-5: 20px;
-  --spacing-6: 24px;
-  --spacing-8: 32px;
-  --spacing-10: 40px;
-  --spacing-12: 48px;
-  --spacing-16: 64px;
-  --spacing-20: 80px;
-  --spacing-24: 96px;
-  --spacing-32: 128px;
+	--spacing-1: 4px;
+	--spacing-2: 8px;
+	--spacing-3: 12px;
+	--spacing-4: 16px;
+	--spacing-5: 20px;
+	--spacing-6: 24px;
+	--spacing-8: 32px;
+	--spacing-10: 40px;
+	--spacing-12: 48px;
+	--spacing-16: 64px;
+	--spacing-20: 80px;
+	--spacing-24: 96px;
+	--spacing-32: 128px;
 
-  /* ========================================
+	/* ========================================
      BORDER RADIUS
      ======================================== */
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-button: 8px;
-  --radius-card: 12px;
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-button: 8px;
+	--radius-card: 12px;
 
-  /* ========================================
+	/* ========================================
      SHADOWS
      ======================================== */
 
-  /* General Shadows */
-  --shadow-01: 0 2px 8px rgba(24, 41, 68, 0.06);
-  --shadow-02: 0 4px 16px rgba(24, 41, 68, 0.08);
-  --shadow-03: 0 8px 24px rgba(24, 41, 68, 0.12);
-  --shadow-04: 0 12px 32px rgba(24, 41, 68, 0.15);
-  --shadow-05: 0 16px 40px rgba(24, 41, 68, 0.18);
-  --shadow-06: 0 20px 48px rgba(24, 41, 68, 0.20);
+	/* General Shadows */
+	--shadow-01: 0 2px 8px rgba(24, 41, 68, 0.06);
+	--shadow-02: 0 4px 16px rgba(24, 41, 68, 0.08);
+	--shadow-03: 0 8px 24px rgba(24, 41, 68, 0.12);
+	--shadow-04: 0 12px 32px rgba(24, 41, 68, 0.15);
+	--shadow-05: 0 16px 40px rgba(24, 41, 68, 0.18);
+	--shadow-06: 0 20px 48px rgba(24, 41, 68, 0.2);
 
-  /* Component Shadows */
-  --shadow-card: var(--shadow-01);
-  --shadow-card-hover: var(--shadow-02);
+	/* Component Shadows */
+	--shadow-card: var(--shadow-01);
+	--shadow-card-hover: var(--shadow-02);
 
-  /* Button Shadows */
-  --shadow-button: 0 2px 8px rgba(48, 131, 255, 0.2);
-  --shadow-button-hover: 0 4px 12px rgba(48, 131, 255, 0.3);
-  --shadow-button-active: 0 1px 4px rgba(48, 131, 255, 0.4);
+	/* Button Shadows */
+	--shadow-button: 0 2px 8px rgba(48, 131, 255, 0.2);
+	--shadow-button-hover: 0 4px 12px rgba(48, 131, 255, 0.3);
+	--shadow-button-active: 0 1px 4px rgba(48, 131, 255, 0.4);
 
-  /* White Button Shadows */
-  --shadow-white-button: 0 2px 8px rgba(24, 41, 68, 0.08);
-  --shadow-white-button-hover: 0 4px 12px rgba(24, 41, 68, 0.12);
-  --shadow-white-button-active: 0 1px 4px rgba(24, 41, 68, 0.15);
+	/* White Button Shadows */
+	--shadow-white-button: 0 2px 8px rgba(24, 41, 68, 0.08);
+	--shadow-white-button-hover: 0 4px 12px rgba(24, 41, 68, 0.12);
+	--shadow-white-button-active: 0 1px 4px rgba(24, 41, 68, 0.15);
 
-  /* ========================================
+	/* ========================================
      TRANSITIONS
      ======================================== */
 
-  --transition-fast: 0.15s ease;
-  --transition-base: 0.2s ease;
-  --transition-medium: 0.3s ease;
-  --transition-slow: 0.4s ease;
+	--transition-fast: 0.15s ease;
+	--transition-base: 0.2s ease;
+	--transition-medium: 0.3s ease;
+	--transition-slow: 0.4s ease;
 
-  /* ========================================
+	/* ========================================
      BREAKPOINTS (Mobile-first)
      ======================================== */
 
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1536px;
 }
 
 /* ========================================
@@ -175,27 +175,27 @@
    ======================================== */
 
 @layer base {
-  body {
-    @apply font-sans antialiased text-neutral-700 bg-neutral-100;
-  }
+	body {
+		@apply bg-neutral-100 font-sans text-neutral-700 antialiased;
+	}
 
-  /* Responsive Typography Scaling */
-  h1 {
-    font-size: 36px;
-    line-height: var(--line-height-h1);
-  }
+	/* Responsive Typography Scaling */
+	h1 {
+		font-size: 36px;
+		line-height: var(--line-height-h1);
+	}
 
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 48px;
-    }
-  }
+	@media (min-width: 768px) {
+		h1 {
+			font-size: 48px;
+		}
+	}
 
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: var(--font-size-h1);
-    }
-  }
+	@media (min-width: 1024px) {
+		h1 {
+			font-size: var(--font-size-h1);
+		}
+	}
 }
 
 /* ========================================
@@ -203,77 +203,77 @@
    ======================================== */
 
 @layer utilities {
-  /* Typography Utilities */
-  .text-display-1 {
-    font-size: var(--font-size-display-1);
-    line-height: var(--line-height-display-1);
-    font-weight: 700;
-  }
+	/* Typography Utilities */
+	.text-display-1 {
+		font-size: var(--font-size-display-1);
+		line-height: var(--line-height-display-1);
+		font-weight: 700;
+	}
 
-  .text-display-2 {
-    font-size: var(--font-size-display-2);
-    line-height: var(--line-height-display-2);
-    font-weight: 700;
-  }
+	.text-display-2 {
+		font-size: var(--font-size-display-2);
+		line-height: var(--line-height-display-2);
+		font-weight: 700;
+	}
 
-  .text-h1 {
-    font-size: var(--font-size-h1);
-    line-height: var(--line-height-h1);
-    font-weight: 700;
-  }
+	.text-h1 {
+		font-size: var(--font-size-h1);
+		line-height: var(--line-height-h1);
+		font-weight: 700;
+	}
 
-  .text-h2 {
-    font-size: var(--font-size-h2);
-    line-height: var(--line-height-h2);
-    font-weight: 700;
-  }
+	.text-h2 {
+		font-size: var(--font-size-h2);
+		line-height: var(--line-height-h2);
+		font-weight: 700;
+	}
 
-  .text-h3 {
-    font-size: var(--font-size-h3);
-    line-height: var(--line-height-h3);
-    font-weight: 700;
-  }
+	.text-h3 {
+		font-size: var(--font-size-h3);
+		line-height: var(--line-height-h3);
+		font-weight: 700;
+	}
 
-  .text-h4 {
-    font-size: var(--font-size-h4);
-    line-height: var(--line-height-h4);
-    font-weight: 700;
-  }
+	.text-h4 {
+		font-size: var(--font-size-h4);
+		line-height: var(--line-height-h4);
+		font-weight: 700;
+	}
 
-  .text-body-lg {
-    font-size: var(--font-size-body-lg);
-    line-height: var(--line-height-body-lg);
-  }
+	.text-body-lg {
+		font-size: var(--font-size-body-lg);
+		line-height: var(--line-height-body-lg);
+	}
 
-  .text-body {
-    font-size: var(--font-size-body);
-    line-height: var(--line-height-body);
-  }
+	.text-body {
+		font-size: var(--font-size-body);
+		line-height: var(--line-height-body);
+	}
 
-  .text-body-sm {
-    font-size: var(--font-size-body-sm);
-    line-height: var(--line-height-body-sm);
-  }
+	.text-body-sm {
+		font-size: var(--font-size-body-sm);
+		line-height: var(--line-height-body-sm);
+	}
 
-  /* Shadow Utilities */
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
+	/* Shadow Utilities */
+	.shadow-card {
+		box-shadow: var(--shadow-card);
+	}
 
-  .shadow-card-hover {
-    box-shadow: var(--shadow-card-hover);
-  }
+	.shadow-card-hover {
+		box-shadow: var(--shadow-card-hover);
+	}
 
-  .shadow-button {
-    box-shadow: var(--shadow-button);
-  }
+	.shadow-button {
+		box-shadow: var(--shadow-button);
+	}
 
-  /* Border Radius Utilities */
-  .rounded-button {
-    border-radius: var(--radius-button);
-  }
+	/* Border Radius Utilities */
+	.rounded-button {
+		border-radius: var(--radius-button);
+	}
 
-  .rounded-card {
-    border-radius: var(--radius-card);
-  }
+	.rounded-card {
+		border-radius: var(--radius-card);
+	}
 }

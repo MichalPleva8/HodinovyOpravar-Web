@@ -1,15 +1,15 @@
 {
-	"hooks": {
-		"Stop": [
-			{
-				"hooks": [
-					{
-						"type": "command",
-						// "command": "say 'I'm done'"
-						"command": "afplay /System/Library/Sounds/Glass.aiff"
-					}
-				]
-			}
-		]
-	}
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            // "command": "say 'I'm done'"
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ]
+  }
 }

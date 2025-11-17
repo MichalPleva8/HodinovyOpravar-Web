@@ -1,156 +1,199 @@
 ---
 // Services Overview Page - Hodinový opravár
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ServiceCard from '../../components/ui/ServiceCard.astro';
-import CTABanner from '../../components/sections/CTABanner.astro';
-import { services } from '../../data/services';
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ServiceCard from '../../components/ui/ServiceCard.astro'
+import CTABanner from '../../components/sections/CTABanner.astro'
+import { services } from '../../data/services'
 ---
 
 <BaseLayout
-  title="Naše služby - Hodinový opravár | Žilina a okolie"
-  description="Kompletný prehľad našich služieb: voda, kúrenie, elektrika, opravy áut a bicyklov, maľovanie, montáže nábytku, stavebné práce a záhradné práce. Žilina a okolie."
+	title="Naše služby - Hodinový opravár | Žilina a okolie"
+	description="Kompletný prehľad našich služieb: voda, kúrenie, elektrika, opravy áut a bicyklov, maľovanie, montáže nábytku, stavebné práce a záhradné práce. Žilina a okolie."
 >
-  <!-- Hero Section -->
-  <section class="py-20 px-6 bg-neutral-200">
-    <div class="container mx-auto max-w-7xl text-center">
-      <p class="text-primary font-medium text-sm uppercase tracking-wide mb-4">
-        NAŠE SLUŽBY
-      </p>
-      <h1 class="text-h1 font-bold text-neutral-800 mb-6">
-        Široká škála opravárenských služieb
-      </h1>
-      <p class="text-body-lg text-neutral-600 max-w-2xl mx-auto">
-        Poskytujeme profesionálne opravárenské služby pre váš domov alebo firmu.
-        Od vody a kúrenia až po elektro práce, montáže a záhradné práce.
-      </p>
-    </div>
-  </section>
+	<!-- Hero Section -->
+	<section class="bg-neutral-200 px-6 py-20">
+		<div class="container mx-auto max-w-7xl text-center">
+			<p class="text-primary mb-4 text-sm font-medium tracking-wide uppercase">NAŠE SLUŽBY</p>
+			<h1 class="text-h1 mb-6 font-bold text-neutral-800">
+				Široká škála opravárenských služieb
+			</h1>
+			<p class="text-body-lg mx-auto max-w-2xl text-neutral-600">
+				Poskytujeme profesionálne opravárenské služby pre váš domov alebo firmu. Od vody a
+				kúrenia až po elektro práce, montáže a záhradné práce.
+			</p>
+		</div>
+	</section>
 
-  <!-- Services Grid Section -->
-  <section class="py-20 px-6 bg-white">
-    <div class="container mx-auto max-w-7xl">
-      <!-- All Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-            href={`/sluzby/${service.slug}`}
-            image={service.image}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
+	<!-- Services Grid Section -->
+	<section class="bg-white px-6 py-20">
+		<div class="container mx-auto max-w-7xl">
+			<!-- All Services Grid -->
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{
+					services.map((service) => (
+						<ServiceCard
+							title={service.title}
+							description={service.description}
+							icon={service.icon}
+							href={`/sluzby/${service.slug}`}
+							image={service.image}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
 
-  <!-- Why Choose Us Section -->
-  <section class="py-20 px-6 bg-neutral-200">
-    <div class="container mx-auto max-w-7xl">
-      <div class="text-center mb-12">
-        <h2 class="text-h2 font-bold text-neutral-800 mb-4">
-          Prečo si vybrať práve nás?
-        </h2>
-        <p class="text-body text-neutral-600 max-w-2xl mx-auto">
-          S viac ako 15 rokmi skúseností zabezpečujeme kvalitné a spoľahlivé služby
-        </p>
-      </div>
+	<!-- Why Choose Us Section -->
+	<section class="bg-neutral-200 px-6 py-20">
+		<div class="container mx-auto max-w-7xl">
+			<div class="mb-12 text-center">
+				<h2 class="text-h2 mb-4 font-bold text-neutral-800">Prečo si vybrať práve nás?</h2>
+				<p class="text-body mx-auto max-w-2xl text-neutral-600">
+					S viac ako 15 rokmi skúseností zabezpečujeme kvalitné a spoľahlivé služby
+				</p>
+			</div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Feature 1 -->
-        <div class="bg-white rounded-card p-6 text-center">
-          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <h3 class="font-bold text-neutral-800 mb-2">Rýchla reakcia</h3>
-          <p class="text-sm text-neutral-600">
-            Pri naliehavých záležitostiach reagujeme do niekoľkých hodín
-          </p>
-        </div>
+			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+				<!-- Feature 1 -->
+				<div class="rounded-card bg-white p-6 text-center">
+					<div
+						class="bg-primary/10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg"
+					>
+						<svg
+							class="text-primary h-8 w-8"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+						</svg>
+					</div>
+					<h3 class="mb-2 font-bold text-neutral-800">Rýchla reakcia</h3>
+					<p class="text-sm text-neutral-600">
+						Pri naliehavých záležitostiach reagujeme do niekoľkých hodín
+					</p>
+				</div>
 
-        <!-- Feature 2 -->
-        <div class="bg-white rounded-card p-6 text-center">
-          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 class="font-bold text-neutral-800 mb-2">Kvalitná práca</h3>
-          <p class="text-sm text-neutral-600">
-            Profesionálny prístup a kvalitné výsledky pri každej práci
-          </p>
-        </div>
+				<!-- Feature 2 -->
+				<div class="rounded-card bg-white p-6 text-center">
+					<div
+						class="bg-primary/10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg"
+					>
+						<svg
+							class="text-primary h-8 w-8"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="mb-2 font-bold text-neutral-800">Kvalitná práca</h3>
+					<p class="text-sm text-neutral-600">
+						Profesionálny prístup a kvalitné výsledky pri každej práci
+					</p>
+				</div>
 
-        <!-- Feature 3 -->
-        <div class="bg-white rounded-card p-6 text-center">
-          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 class="font-bold text-neutral-800 mb-2">Férové ceny</h3>
-          <p class="text-sm text-neutral-600">
-            Transparentné ceny bez skrytých poplatkov
-          </p>
-        </div>
+				<!-- Feature 3 -->
+				<div class="rounded-card bg-white p-6 text-center">
+					<div
+						class="bg-primary/10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg"
+					>
+						<svg
+							class="text-primary h-8 w-8"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+							></path>
+						</svg>
+					</div>
+					<h3 class="mb-2 font-bold text-neutral-800">Férové ceny</h3>
+					<p class="text-sm text-neutral-600">
+						Transparentné ceny bez skrytých poplatkov
+					</p>
+				</div>
 
-        <!-- Feature 4 -->
-        <div class="bg-white rounded-card p-6 text-center">
-          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-          </div>
-          <h3 class="font-bold text-neutral-800 mb-2">Záruka na prácu</h3>
-          <p class="text-sm text-neutral-600">
-            Na všetky práce poskytujeme záruku
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+				<!-- Feature 4 -->
+				<div class="rounded-card bg-white p-6 text-center">
+					<div
+						class="bg-primary/10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg"
+					>
+						<svg
+							class="text-primary h-8 w-8"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+							></path>
+						</svg>
+					</div>
+					<h3 class="mb-2 font-bold text-neutral-800">Záruka na prácu</h3>
+					<p class="text-sm text-neutral-600">Na všetky práce poskytujeme záruku</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-  <!-- CTA Banner -->
-  <CTABanner />
+	<!-- CTA Banner -->
+	<CTABanner />
 
-  <!-- Service Areas Section -->
-  <section class="py-20 px-6 bg-white">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-h2 font-bold text-neutral-800 mb-6">
-        Oblasti pôsobenia
-      </h2>
-      <p class="text-body text-neutral-600 mb-8">
-        Poskytujeme služby v Žiline a v širokom okolí
-      </p>
+	<!-- Service Areas Section -->
+	<section class="bg-white px-6 py-20">
+		<div class="container mx-auto max-w-4xl text-center">
+			<h2 class="text-h2 mb-6 font-bold text-neutral-800">Oblasti pôsobenia</h2>
+			<p class="text-body mb-8 text-neutral-600">
+				Poskytujeme služby v Žiline a v širokom okolí
+			</p>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {[
-          'Žilina',
-          'Bytča',
-          'Martin',
-          'Rajec',
-          'Terchová',
-          'Varín',
-          'Vrútky',
-          'Kysucké Nové Mesto',
-          'Čadca',
-          'Dolný Kubín',
-          'Ružomberok',
-          'a okolie'
-        ].map((area) => (
-          <div class="bg-neutral-200 rounded-lg px-4 py-3 text-neutral-700 font-medium">
-            {area}
-          </div>
-        ))}
-      </div>
+			<div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+				{
+					[
+						'Žilina',
+						'Bytča',
+						'Martin',
+						'Rajec',
+						'Terchová',
+						'Varín',
+						'Vrútky',
+						'Kysucké Nové Mesto',
+						'Čadca',
+						'Dolný Kubín',
+						'Ružomberok',
+						'a okolie',
+					].map((area) => (
+						<div class="rounded-lg bg-neutral-200 px-4 py-3 font-medium text-neutral-700">
+							{area}
+						</div>
+					))
+				}
+			</div>
 
-      <div class="mt-8 p-6 bg-primary-light rounded-card">
-        <p class="text-neutral-700 font-medium">
-          Nevidiť vašu oblasť? Kontaktujte nás - pre väčšie projekty sme ochotní dohodnúť sa aj na väčšiu vzdialenosť.
-        </p>
-      </div>
-    </div>
-  </section>
+			<div class="bg-primary-light rounded-card mt-8 p-6">
+				<p class="font-medium text-neutral-700">
+					Nevidiť vašu oblasť? Kontaktujte nás - pre väčšie projekty sme ochotní dohodnúť
+					sa aj na väčšiu vzdialenosť.
+				</p>
+			</div>
+		</div>
+	</section>
 </BaseLayout>

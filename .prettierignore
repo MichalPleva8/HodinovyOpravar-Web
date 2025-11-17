@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+.astro/
+
+# Cache
+.cache/
+.DS_Store
+
+# Environment files
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Documentation (contains code snippets that may not be valid)
+.claude/
+
+# Misc
+*.log

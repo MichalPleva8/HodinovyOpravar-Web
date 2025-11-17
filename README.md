@@ -8,12 +8,12 @@ Static website for Hodinový opravár, providing comprehensive handyman services
 
 ## Tech Stack
 
--   **Framework**: Astro 4.x (Static Site Generator)
--   **Styling**: Tailwind CSS v4 (CSS-based configuration)
--   **Interactivity**: React Islands (minimal JavaScript)
--   **Icons**: Lucide React
--   **Language**: TypeScript
--   **Fonts**: Outfit (Google Fonts)
+- **Framework**: Astro 4.x (Static Site Generator)
+- **Styling**: Tailwind CSS v4 (CSS-based configuration)
+- **Interactivity**: React Islands (minimal JavaScript)
+- **Icons**: Lucide React
+- **Language**: TypeScript
+- **Fonts**: Outfit (Google Fonts)
 
 ## Project Structure
 
@@ -63,11 +63,11 @@ The project uses a comprehensive design system based on the Plumbing X template.
 
 ### Key Features
 
--   **8px spacing grid** for consistent spacing
--   **Complete color palette** with primary blue (#3083FF) and neutral grays
--   **Typography system** with Outfit font family
--   **Component shadows** for depth and hierarchy
--   **Responsive breakpoints** (mobile-first approach)
+- **8px spacing grid** for consistent spacing
+- **Complete color palette** with primary blue (#3083FF) and neutral grays
+- **Typography system** with Outfit font family
+- **Component shadows** for depth and hierarchy
+- **Responsive breakpoints** (mobile-first approach)
 
 ### Using Design Tokens
 
@@ -80,15 +80,15 @@ The project uses a comprehensive design system based on the Plumbing X template.
 <button class="bg-primary hover:bg-primary-hover text-white">Button</button>
 
 <!-- Spacing & Shadows -->
-<div class="p-6 rounded-card shadow-card hover:shadow-card-hover">Card</div>
+<div class="rounded-card shadow-card hover:shadow-card-hover p-6">Card</div>
 ```
 
 ## Development
 
 ### Prerequisites
 
--   Node.js 18.20.8+ or 20.3.0+ or 22.0.0+
--   npm 9.6.5+
+- Node.js 18.20.8+ or 20.3.0+ or 22.0.0+
+- npm 9.6.5+
 
 ### Commands
 
@@ -115,16 +115,16 @@ npm run astro check
 
 **Use Astro components (.astro) for:**
 
--   Static content (default choice)
--   Layout components (Header, Footer)
--   Section components (Hero, Services, Stats)
--   UI components without interactivity
+- Static content (default choice)
+- Layout components (Header, Footer)
+- Section components (Hero, Services, Stats)
+- UI components without interactivity
 
 **Use React components (.tsx) only for:**
 
--   Contact forms (validation, submission)
--   Image galleries (lightbox functionality)
--   Mobile menu (toggle state)
+- Contact forms (validation, submission)
+- Image galleries (lightbox functionality)
+- Mobile menu (toggle state)
 
 ### Client Directives
 
@@ -143,10 +143,10 @@ npm run astro check
 
 All content is stored as TypeScript files in `src/data/`. This provides:
 
--   Type safety with interfaces
--   No CMS required
--   Version controlled
--   Easy to update
+- Type safety with interfaces
+- No CMS required
+- Version controlled
+- Easy to update
 
 Example:
 
@@ -177,12 +177,10 @@ export const services: Service[] = [
 
 ```astro
 <!-- Base styles for mobile, add breakpoints for larger screens -->
-<div class="text-sm md:text-base lg:text-lg">
-  Responsive text
-</div>
+<div class="text-sm md:text-base lg:text-lg">Responsive text</div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-  <!-- Grid adapts to screen size -->
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+	<!-- Grid adapts to screen size -->
 </div>
 ```
 
@@ -193,56 +191,56 @@ Always use design tokens instead of arbitrary values:
 ✅ **Good:**
 
 ```astro
-<button class="bg-primary text-white rounded-button shadow-button">
+<button class="bg-primary rounded-button shadow-button text-white"></button>
 ```
 
 ❌ **Bad:**
 
 ```astro
-<button class="bg-[#3083FF] text-white rounded-lg shadow-md">
+<button class="rounded-lg bg-[#3083FF] text-white shadow-md"></button>
 ```
 
 ## Language & Tone
 
--   **Language**: Slovak (Slovenčina)
--   **Tone**: Professional yet friendly
--   **Form**: Formal (vykanie - "vy" not "ty")
+- **Language**: Slovak (Slovenčina)
+- **Tone**: Professional yet friendly
+- **Form**: Formal (vykanie - "vy" not "ty")
 
 Examples:
 
--   "Kontaktujte nás" (not "Kontaktuj nás")
--   "Potrebujete pomoc?" (not "Potrebuješ pomoc?")
+- "Kontaktujte nás" (not "Kontaktuj nás")
+- "Potrebujete pomoc?" (not "Potrebuješ pomoc?")
 
 ## Reference Files
 
 Detailed documentation is available in the `.claude/` directory:
 
--   `design-system.md` - Complete design tokens and component styles
--   `component-patterns.md` - Code examples and best practices
--   `folder-structure.md` - Detailed project structure
--   `claude-code-starter.txt` - Quick setup guide
+- `design-system.md` - Complete design tokens and component styles
+- `component-patterns.md` - Code examples and best practices
+- `folder-structure.md` - Detailed project structure
+- `claude-code-starter.txt` - Quick setup guide
 
 ## Browser Support
 
--   Modern browsers (Chrome, Firefox, Safari, Edge)
--   Mobile browsers (iOS Safari, Chrome for Android)
--   ES2020+ JavaScript features
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Chrome for Android)
+- ES2020+ JavaScript features
 
 ## Performance
 
--   Static site generation (no server required)
--   Minimal JavaScript (only for interactive components)
--   Optimized CSS with Tailwind
--   Lazy loading for images and interactive components
+- Static site generation (no server required)
+- Minimal JavaScript (only for interactive components)
+- Optimized CSS with Tailwind
+- Lazy loading for images and interactive components
 
 ## Deployment
 
 The project builds to static files in `dist/` directory. Deploy to any static hosting:
 
--   Netlify
--   Vercel
--   GitHub Pages
--   Cloudflare Pages
+- Netlify
+- Vercel
+- GitHub Pages
+- Cloudflare Pages
 
 ## License
 

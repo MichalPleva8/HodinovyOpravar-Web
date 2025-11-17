@@ -24,55 +24,59 @@
  */
 
 interface Props {
-  label: string;
-  name: string;
-  type?: 'text' | 'email' | 'tel' | 'textarea' | 'number';
-  placeholder?: string;
-  required?: boolean;
-  rows?: number; // Only for textarea
-  value?: string;
-  class?: string;
+	label: string
+	name: string
+	type?: 'text' | 'email' | 'tel' | 'textarea' | 'number'
+	placeholder?: string
+	required?: boolean
+	rows?: number // Only for textarea
+	value?: string
+	class?: string
 }
 
 const {
-  label,
-  name,
-  type = 'text',
-  placeholder = '',
-  required = false,
-  rows = 4,
-  value = '',
-  class: className = ''
-} = Astro.props;
+	label,
+	name,
+	type = 'text',
+	placeholder = '',
+	required = false,
+	rows = 4,
+	value = '',
+	class: className = '',
+} = Astro.props
 
 // Input field base classes
-const inputClasses = `w-full px-4 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-neutral-500 ${className}`;
+const inputClasses = `w-full px-4 py-3 border border-neutral-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-neutral-500 ${className}`
 ---
 
 <div class="space-y-2">
-  <label for={name} class="block text-sm font-medium text-neutral-700">
-    {label}
-    {required && <span class="text-red-500 ml-1">*</span>}
-  </label>
+	<label for={name} class="block text-sm font-medium text-neutral-700">
+		{label}
+		{required && <span class="ml-1 text-red-500">*</span>}
+	</label>
 
-  {type === 'textarea' ? (
-    <textarea
-      id={name}
-      name={name}
-      rows={rows}
-      placeholder={placeholder}
-      required={required}
-      class={inputClasses}
-    >{value}</textarea>
-  ) : (
-    <input
-      type={type}
-      id={name}
-      name={name}
-      placeholder={placeholder}
-      required={required}
-      value={value}
-      class={inputClasses}
-    />
-  )}
+	{
+		type === 'textarea' ? (
+			<textarea
+				id={name}
+				name={name}
+				rows={rows}
+				placeholder={placeholder}
+				required={required}
+				class={inputClasses}
+			>
+				{value}
+			</textarea>
+		) : (
+			<input
+				type={type}
+				id={name}
+				name={name}
+				placeholder={placeholder}
+				required={required}
+				value={value}
+				class={inputClasses}
+			/>
+		)
+	}
 </div>
