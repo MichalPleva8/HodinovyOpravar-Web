@@ -16,9 +16,9 @@ const linkClasses = href
 	: ''
 ---
 
-<Tag href={href} class={`flex flex-row items-center ${linkClasses} ${className}`}>
+<Tag href={href} class={`flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left ${linkClasses} ${className}`}>
 	<div
-		class="icon-container mr-3 hidden items-center justify-center overflow-hidden rounded-full sm:mr-7"
+		class="icon-container mb-4 flex items-center justify-center overflow-hidden rounded-full sm:mb-0 sm:mr-3 md:mr-7"
 		style="background-color: #f5f9fe;"
 	>
 		<img src={icon} alt={iconAlt} class="icon-image" />
@@ -31,22 +31,14 @@ const linkClasses = href
 </Tag>
 
 <style>
-	/* Hide on smallest screens */
+	/* Base size for mobile */
 	.icon-container {
-		display: none;
+		width: 65px;
+		height: 65px;
 	}
-
-	/* Show at reduced size on medium-small screens (480px+) */
-	@media (min-width: 480px) {
-		.icon-container {
-			display: flex;
-			width: 65px;
-			height: 65px;
-		}
-		.icon-image {
-			width: 32px;
-			height: 32px;
-		}
+	.icon-image {
+		width: 32px;
+		height: 32px;
 	}
 
 	/* Full size on tablet and up (640px+) */
