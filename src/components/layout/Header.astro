@@ -1,8 +1,17 @@
 ---
 // src/components/layout/Header.astro
-import { Phone, Menu } from 'lucide-react'
+import { Phone, Menu, Facebook, Instagram, Linkedin } from 'lucide-react'
 import TopBar from './TopBar.astro'
 import Button from '../ui/Button.astro'
+import { socials } from '../../data/socials'
+
+const socialIcons = {
+	facebook: Facebook,
+	twitter: Facebook,
+	instagram: Instagram,
+	youtube: Facebook,
+	linkedin: Linkedin,
+}
 
 const navigation = [
 	{ name: 'Domov', href: '/' },
@@ -61,34 +70,58 @@ const currentPath = Astro.url.pathname
 					<Menu className="h-6 w-6" />
 				</button>
 			</div>
+		</nav>
+	</div>
 
-			<!-- Mobile Navigation (hidden by default, toggle with JS) -->
-			<div
-				id="mobile-menu"
-				class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out md:hidden"
-			>
-				<div class="overflow-hidden pt-4 pb-2">
-				<ul class="flex flex-col space-y-2">
+	<!-- Mobile Navigation Overlay (below header) -->
+	<div
+		id="mobile-menu"
+		class="fixed left-0 right-0 top-[72px] z-40 h-[calc(100vh-72px)] bg-white shadow-lg transition-transform duration-300 ease-in-out md:hidden"
+		style="transform: translateY(-100%);"
+	>
+		<div class="flex h-full flex-col justify-between overflow-y-auto px-6 pt-8 pb-12">
+			<ul class="flex flex-col space-y-2">
+				{
+					navigation.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								class={`text-body block rounded-lg px-4 py-2 font-medium transition-colors ${
+									currentPath === item.href
+										? 'bg-primary-light text-primary font-bold'
+										: 'text-neutral-700 hover:bg-neutral-200'
+								}`}
+							>
+								{item.name}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+
+			<div>
+				<!-- Social Links -->
+				<div class="flex items-center justify-center gap-4">
 					{
-						navigation.map((item) => (
-							<li>
+						socials.map((social) => {
+							const Icon = socialIcons[social.icon]
+							return (
 								<a
-									href={item.href}
-									class={`text-body block rounded-lg px-4 py-2 font-medium transition-colors ${
-										currentPath === item.href
-											? 'bg-primary-light text-primary font-bold'
-											: 'text-neutral-700 hover:bg-neutral-200'
-									}`}
+									href={social.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={social.name}
+									class="group flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 transition-all hover:bg-primary"
 								>
-									{item.name}
+									<Icon className="h-5 w-5 text-primary transition-colors group-hover:text-white" />
 								</a>
-							</li>
-						))
+							)
+						})
 					}
-				</ul>
+				</div>
 
 				<!-- Mobile CTA Button -->
-				<div class="mt-4 px-4">
+				<div class="mt-6">
 					<Button
 						href="tel:+421903566644"
 						variant="primary"
@@ -99,9 +132,8 @@ const currentPath = Astro.url.pathname
 						Zavolať teraz
 					</Button>
 				</div>
-				</div>
 			</div>
-		</nav>
+		</div>
 	</div>
 </>
 
@@ -126,22 +158,25 @@ const currentPath = Astro.url.pathname
 </style>
 
 <script>
-	// Mobile menu toggle with animation
+	// Mobile menu toggle with slide animation
 	document.addEventListener('DOMContentLoaded', () => {
 		const menuButton = document.getElementById('mobile-menu-button')
 		const mobileMenu = document.getElementById('mobile-menu')
 
 		menuButton?.addEventListener('click', () => {
-			const isOpen = mobileMenu?.classList.contains('grid-rows-[1fr]')
+			const currentTransform = mobileMenu?.style.transform || 'translateY(-100%)'
+			const isOpen = currentTransform === 'translateY(0%)'
 
 			if (isOpen) {
 				// Close menu
-				mobileMenu?.classList.remove('grid-rows-[1fr]')
-				mobileMenu?.classList.add('grid-rows-[0fr]')
+				if (mobileMenu) {
+					mobileMenu.style.transform = 'translateY(-100%)'
+				}
 			} else {
 				// Open menu
-				mobileMenu?.classList.remove('grid-rows-[0fr]')
-				mobileMenu?.classList.add('grid-rows-[1fr]')
+				if (mobileMenu) {
+					mobileMenu.style.transform = 'translateY(0%)'
+				}
 			}
 		})
 	})
