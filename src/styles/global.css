@@ -13,6 +13,10 @@
 	/* Secondary Colors */
 	--color-secondary-yellow: #fdb52a;
 
+	/* Brand Logo Colors */
+	--color-brand-red: #e13a33;
+	--color-brand-cyan: #74efe2;
+
 	/* Neutral Colors (Grayscale) */
 	--color-neutral-100: #ffffff;
 	--color-neutral-200: #f7f7fc;
@@ -244,16 +248,16 @@
 		}
 	}
 
-	/* Display 2: 32px → 40px → 48px */
+	/* Display 2: 34px → 48px → 48px */
 	.text-display-2 {
-		font-size: 32px;
+		font-size: 34px;
 		line-height: var(--line-height-display-2);
 		font-weight: 700;
 	}
 
 	@media (min-width: 768px) {
 		.text-display-2 {
-			font-size: 40px;
+			font-size: 48px;
 		}
 	}
 

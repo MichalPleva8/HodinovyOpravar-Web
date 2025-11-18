@@ -3,14 +3,12 @@
 
 export interface Stats {
 	yearsExperience: number
-	happyClients: number
 	projectsCompleted: number
 	servicesOffered: number
 }
 
 export const stats: Stats = {
-	yearsExperience: 15,
-	happyClients: 500,
-	projectsCompleted: 1200,
+	yearsExperience: 30,
+	projectsCompleted: 4800,
 	servicesOffered: 8,
 }
