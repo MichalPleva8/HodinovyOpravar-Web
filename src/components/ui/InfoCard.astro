@@ -1,0 +1,31 @@
+---
+// Info Card Component - Used for contact information cards
+interface Props {
+	icon: string
+	iconAlt: string
+	heading: string
+	value: string
+	href?: string
+	class?: string
+}
+
+const { icon, iconAlt, heading, value, href, class: className = '' } = Astro.props
+const Tag = href ? 'a' : 'div'
+const linkClasses = href
+	? 'cursor-pointer transition-all duration-300 ease-out hover:translate-y-[-2px]'
+	: ''
+---
+
+<Tag href={href} class={`flex flex-row items-center ${linkClasses} ${className}`}>
+	<div
+		class="mr-7 flex h-20 w-20 items-center justify-center overflow-hidden rounded-full"
+		style="background-color: #f5f9fe;"
+	>
+		<img src={icon} alt={iconAlt} />
+	</div>
+
+	<div class="flex flex-col">
+		<h3 class="text-h4 text-neutral-800">{heading}</h3>
+		<p class="mt-2 text-xl leading-tight font-medium text-blue-500" set:html={value} />
+	</div>
+</Tag>

@@ -1,15 +1,16 @@
 ---
 // Hero Section - Homepage
 import Button from '../ui/Button.astro'
-import { Phone, MapPin } from 'lucide-react'
+import InfoCard from '../ui/InfoCard.astro'
+import { contact } from '../../data/contact'
 ---
 
-<section class="relative bg-neutral-200 px-6 pt-20 pb-20 lg:pt-24 lg:pb-32">
+<section class="relative px-6 pt-20 pb-20 lg:pt-24 lg:pb-32">
 	<div class="container mx-auto max-w-7xl">
 		<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
 			<!-- Left: Content -->
 			<div class="mx-auto w-full max-w-xl text-center lg:mx-0 lg:max-w-none lg:text-left">
-				<p class="text-primary text-subtitle mb-3 uppercase tracking-wide">
+				<p class="text-primary text-subtitle mb-3 tracking-wide uppercase">
 					Hodinový opravár
 				</p>
 				<h1 class="text-display-1 mb-3 text-neutral-800">
@@ -21,8 +22,13 @@ import { Phone, MapPin } from 'lucide-react'
 				</p>
 
 				<!-- CTAs -->
-				<div class="mb-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-					<Button href="tel:+421903566644" variant="primary" size="lg" class="px-4 sm:px-6">
+				<div class="mb-8 flex flex-col justify-center gap-6 sm:flex-row lg:justify-start">
+					<Button
+						href={`tel:${contact.phone}`}
+						variant="primary"
+						size="lg"
+						class="px-4 sm:px-6"
+					>
 						Zavolať teraz
 					</Button>
 					<Button href="/sluzby" variant="secondary" size="lg" class="px-4 sm:px-6">
@@ -37,6 +43,44 @@ import { Phone, MapPin } from 'lucide-react'
 					src="/images/hero/roman-half-cut.png"
 					alt="Profesionálny opravár - Hodinový opravár Žilina"
 					class="h-full w-full rounded-lg object-contain object-center"
+				/>
+			</div>
+		</div>
+
+		<!-- Info Cards Container -->
+		<div
+			class="mx-auto flex w-full max-w-[800px] items-center justify-center rounded-[20px] border border-neutral-300 bg-white px-[34px] py-[50px] shadow-[3px_3px_12px_0_rgba(0,0,0,0.04)] md:px-[50px] md:py-[60px] lg:max-w-full lg:px-5 lg:py-[72px]"
+		>
+			<div
+				class="flex w-full flex-col justify-between gap-8 lg:max-w-[1077px] lg:flex-row lg:gap-0"
+			>
+				<InfoCard
+					icon="/images/contact-cards/blue-pin.svg"
+					iconAlt="location marker"
+					heading="Adresa"
+					value="<span class='lg:hidden'>Žilina, Slovensko a okolie</span><span class='hidden lg:inline'>Žilina, Slovensko<br />a okolie</span>"
+				/>
+
+				<div class="h-0.5 w-full bg-neutral-200 lg:mx-5 lg:h-auto lg:min-h-full lg:w-0.5">
+				</div>
+
+				<InfoCard
+					icon="/images/contact-cards/blue-mail.svg"
+					iconAlt="email"
+					heading="Email"
+					value={contact.email}
+					href={`mailto:${contact.email}`}
+				/>
+
+				<div class="h-0.5 w-full bg-neutral-200 lg:mx-5 lg:h-auto lg:min-h-full lg:w-0.5">
+				</div>
+
+				<InfoCard
+					icon="/images/contact-cards/blue-phone.svg"
+					iconAlt="phone"
+					heading="Telefónne číslo"
+					value={contact.phoneDisplay}
+					href={`tel:${contact.phone}`}
 				/>
 			</div>
 		</div>

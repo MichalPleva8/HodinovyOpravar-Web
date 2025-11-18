@@ -96,6 +96,19 @@
 	--font-size-body-sm: 14px;
 	--line-height-body-sm: 1.714;
 
+	/* Text Single (Info Cards) */
+	--font-size-text-single-400: 24px;
+	--line-height-text-single-400: 1.583;
+
+	--font-size-text-single-300: 20px;
+	--line-height-text-single-300: 1.6;
+
+	--font-size-text-single-200: 18px;
+	--line-height-text-single-200: 1.556;
+
+	--font-size-text-single-100: 16px;
+	--line-height-text-single-100: 1.625;
+
 	/* ========================================
      SPACING SYSTEM (8px grid)
      ======================================== */
@@ -457,6 +470,87 @@
 		.text-subtitle {
 			font-size: 20px;
 		}
+	}
+
+	/* ========================================
+	   TEXT SINGLE (Info Cards)
+	   Fixed sizes with font-weight variants
+	   ======================================== */
+
+	/* Text Single 400: 24px */
+	.text-single-400 {
+		font-size: var(--font-size-text-single-400);
+		line-height: var(--line-height-text-single-400);
+		font-weight: 400;
+	}
+
+	.text-single-400-medium {
+		font-size: var(--font-size-text-single-400);
+		line-height: var(--line-height-text-single-400);
+		font-weight: 500;
+	}
+
+	.text-single-400-bold {
+		font-size: var(--font-size-text-single-400);
+		line-height: var(--line-height-text-single-400);
+		font-weight: 700;
+	}
+
+	/* Text Single 300: 20px */
+	.text-single-300 {
+		font-size: var(--font-size-text-single-300);
+		line-height: var(--line-height-text-single-300);
+		font-weight: 400;
+	}
+
+	.text-single-300-medium {
+		font-size: var(--font-size-text-single-300);
+		line-height: var(--line-height-text-single-300);
+		font-weight: 500;
+	}
+
+	.text-single-300-bold {
+		font-size: var(--font-size-text-single-300);
+		line-height: var(--line-height-text-single-300);
+		font-weight: 700;
+	}
+
+	/* Text Single 200: 18px */
+	.text-single-200 {
+		font-size: var(--font-size-text-single-200);
+		line-height: var(--line-height-text-single-200);
+		font-weight: 400;
+	}
+
+	.text-single-200-medium {
+		font-size: var(--font-size-text-single-200);
+		line-height: var(--line-height-text-single-200);
+		font-weight: 500;
+	}
+
+	.text-single-200-bold {
+		font-size: var(--font-size-text-single-200);
+		line-height: var(--line-height-text-single-200);
+		font-weight: 700;
+	}
+
+	/* Text Single 100: 16px */
+	.text-single-100 {
+		font-size: var(--font-size-text-single-100);
+		line-height: var(--line-height-text-single-100);
+		font-weight: 400;
+	}
+
+	.text-single-100-medium {
+		font-size: var(--font-size-text-single-100);
+		line-height: var(--line-height-text-single-100);
+		font-weight: 500;
+	}
+
+	.text-single-100-bold {
+		font-size: var(--font-size-text-single-100);
+		line-height: var(--line-height-text-single-100);
+		font-weight: 700;
 	}
 
 	/* ========================================
