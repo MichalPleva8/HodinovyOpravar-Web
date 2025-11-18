@@ -14,8 +14,9 @@ const socialIcons = {
 }
 
 const navigation = [
-	{ name: 'Domov', href: '/' },
-	{ name: 'Služby', href: '/sluzby' },
+	{ name: 'Domov', href: '/#' },
+	{ name: 'Služby', href: '/#sluzby' },
+	{ name: 'Referencie', href: '/#referencie' },
 	{ name: 'Kontakt', href: '/kontakt' },
 ]
 
@@ -25,15 +26,23 @@ const currentPath = Astro.url.pathname
 <>
 	<TopBar />
 	<div class="main-nav z-50 border-b border-neutral-300 bg-white">
-		<nav class="container mx-auto px-6 py-4">
-			<div class="flex items-center justify-between">
+		<nav class="container mx-auto px-6 py-2">
+			<div class="flex items-center justify-between gap-8">
 				<!-- Logo -->
-				<a href="/" class="flex items-center">
-					<img src="/images/logo.png" alt="Hodinový opravár" class="h-12" />
+				<a
+					href="/"
+					class="flex items-center transition-all duration-300 ease-out hover:-translate-y-0.5"
+				>
+					<img
+						src="/images/logo.png"
+						alt="Hodinový opravár"
+						id="header-logo"
+						class="h-12 transition-all duration-300 ease-out md:h-[62px]"
+					/>
 				</a>
 
 				<!-- Desktop Navigation + CTA -->
-				<div class="hidden items-center gap-8 md:flex">
+				<div class="hidden items-center gap-8 py-2 md:flex">
 					<!-- Navigation Links -->
 					<ul class="flex items-center gap-8">
 						{
@@ -76,8 +85,8 @@ const currentPath = Astro.url.pathname
 	<!-- Mobile Navigation Overlay (below header) -->
 	<div
 		id="mobile-menu"
-		class="fixed left-0 right-0 top-[72px] z-40 h-[calc(100vh-72px)] bg-white shadow-lg transition-transform duration-300 ease-in-out md:hidden"
-		style="transform: translateY(-100%);"
+		class="mobile-menu-overlay fixed right-0 left-0 z-40 bg-white transition-transform duration-300 ease-in-out md:hidden"
+		style="transform: translateY(-100%); top: var(--header-height, 72px); height: calc(100vh - var(--header-height, 72px));"
 	>
 		<div class="flex h-full flex-col justify-between overflow-y-auto px-6 pt-8 pb-12">
 			<ul class="flex flex-col space-y-2">
@@ -111,7 +120,7 @@ const currentPath = Astro.url.pathname
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label={social.name}
-									class="group flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 transition-all hover:bg-primary"
+									class="group hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 transition-all"
 								>
 									<Icon className="h-5 w-5 text-primary transition-colors group-hover:text-white" />
 								</a>
@@ -155,6 +164,11 @@ const currentPath = Astro.url.pathname
 			right: auto;
 		}
 	}
+
+	/* Mobile menu subtle spread shadow */
+	.mobile-menu-overlay {
+		box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+	}
 </style>
 
 <script>
@@ -162,16 +176,30 @@ const currentPath = Astro.url.pathname
 	document.addEventListener('DOMContentLoaded', () => {
 		const menuButton = document.getElementById('mobile-menu-button')
 		const mobileMenu = document.getElementById('mobile-menu')
+		const mainNav = document.querySelector('.main-nav')
+
+		// Set CSS variable for header height
+		if (mainNav && mobileMenu) {
+			const setHeaderHeight = () => {
+				const height = (mainNav as HTMLElement).offsetHeight
+				document.documentElement.style.setProperty('--header-height', `${height}px`)
+			}
+			setHeaderHeight()
+			window.addEventListener('resize', setHeaderHeight)
+		}
+
+		const closeMobileMenu = () => {
+			if (mobileMenu) {
+				mobileMenu.style.transform = 'translateY(-100%)'
+			}
+		}
 
 		menuButton?.addEventListener('click', () => {
 			const currentTransform = mobileMenu?.style.transform || 'translateY(-100%)'
 			const isOpen = currentTransform === 'translateY(0%)'
 
 			if (isOpen) {
-				// Close menu
-				if (mobileMenu) {
-					mobileMenu.style.transform = 'translateY(-100%)'
-				}
+				closeMobileMenu()
 			} else {
 				// Open menu
 				if (mobileMenu) {
@@ -179,5 +207,45 @@ const currentPath = Astro.url.pathname
 				}
 			}
 		})
+
+		// Close mobile menu when clicking navigation links
+		const mobileNavLinks = mobileMenu?.querySelectorAll('a')
+		mobileNavLinks?.forEach((link) => {
+			link.addEventListener('click', () => {
+				closeMobileMenu()
+			})
+		})
+
+		// Logo size animation on scroll (desktop only)
+		if (window.innerWidth >= 768) {
+			const logo = document.getElementById('header-logo')
+
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (logo) {
+							if (entry.isIntersecting) {
+								// Not sticky - large logo (1.3x)
+								logo.classList.remove('md:h-12')
+								logo.classList.add('md:h-[62px]')
+							} else {
+								// Sticky - small logo
+								logo.classList.remove('md:h-[62px]')
+								logo.classList.add('md:h-12')
+							}
+						}
+					})
+				},
+				{ threshold: [1], rootMargin: '-1px 0px 0px 0px' }
+			)
+
+			// Observe the top of the page
+			const sentinel = document.createElement('div')
+			sentinel.style.position = 'absolute'
+			sentinel.style.top = '0'
+			sentinel.style.height = '1px'
+			document.body.prepend(sentinel)
+			observer.observe(sentinel)
+		}
 	})
 </script>

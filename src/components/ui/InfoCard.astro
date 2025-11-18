@@ -18,10 +18,10 @@ const linkClasses = href
 
 <Tag href={href} class={`flex flex-row items-center ${linkClasses} ${className}`}>
 	<div
-		class="mr-7 flex h-20 w-20 items-center justify-center overflow-hidden rounded-full"
+		class="icon-container mr-3 hidden items-center justify-center overflow-hidden rounded-full sm:mr-7"
 		style="background-color: #f5f9fe;"
 	>
-		<img src={icon} alt={iconAlt} />
+		<img src={icon} alt={iconAlt} class="icon-image" />
 	</div>
 
 	<div class="flex flex-col">
@@ -29,3 +29,35 @@ const linkClasses = href
 		<p class="mt-2 text-xl leading-tight font-medium text-blue-500" set:html={value} />
 	</div>
 </Tag>
+
+<style>
+	/* Hide on smallest screens */
+	.icon-container {
+		display: none;
+	}
+
+	/* Show at reduced size on medium-small screens (480px+) */
+	@media (min-width: 480px) {
+		.icon-container {
+			display: flex;
+			width: 65px;
+			height: 65px;
+		}
+		.icon-image {
+			width: 32px;
+			height: 32px;
+		}
+	}
+
+	/* Full size on tablet and up (640px+) */
+	@media (min-width: 640px) {
+		.icon-container {
+			width: 80px;
+			height: 80px;
+		}
+		.icon-image {
+			width: auto;
+			height: auto;
+		}
+	}
+</style>

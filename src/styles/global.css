@@ -188,6 +188,10 @@
    ======================================== */
 
 @layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
 	body {
 		@apply bg-neutral-100 font-sans text-neutral-700 antialiased;
 	}
