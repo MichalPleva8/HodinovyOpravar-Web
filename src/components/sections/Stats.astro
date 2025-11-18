@@ -18,6 +18,14 @@ const stats = [
 	},
 	{ label: 'Služieb', value: data.servicesOffered, plusColor: 'var(--color-brand-red)' },
 ]
+
+const partners = [
+	{ name: 'Autobechcci', logo: '/images/partners/autobechcci.png' },
+	{ name: 'Dôvera', logo: '/images/partners/dovera.png' },
+	{ name: 'Globtúr', logo: '/images/partners/globtur.jpg' },
+	{ name: 'RegioJet', logo: '/images/partners/regiojet.png' },
+	{ name: 'Žilbyt', logo: '/images/partners/zilbyt.png' },
+]
 ---
 
 <section class="bg-neutral-800 px-6 py-20 text-white lg:py-32">
@@ -77,5 +85,64 @@ const stats = [
 				</div>
 			</div>
 		</div>
+
+		<!-- Partner Logos Stripe -->
+		<div class="mt-16 overflow-hidden lg:mt-20">
+			<div class="flex gap-8">
+				<div class="flex animate-scroll-mobile shrink-0 gap-8 md:animate-scroll-tablet lg:animate-scroll-desktop">
+					{
+						partners.map((partner) => (
+							<div class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]" style="aspect-ratio: 16/9;">
+								<img
+									src={partner.logo}
+									alt={partner.name}
+									class="h-full w-full object-contain"
+								/>
+							</div>
+						))
+					}
+				</div>
+				<div class="flex animate-scroll-mobile shrink-0 gap-8 md:animate-scroll-tablet lg:animate-scroll-desktop" aria-hidden="true">
+					{
+						partners.map((partner) => (
+							<div class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]" style="aspect-ratio: 16/9;">
+								<img
+									src={partner.logo}
+									alt={partner.name}
+									class="h-full w-full object-contain"
+								/>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+
+		<style>
+			@keyframes scroll-infinite {
+				from {
+					transform: translateX(0);
+				}
+				to {
+					transform: translateX(-100%);
+				}
+			}
+
+			.animate-scroll-mobile {
+				animation: scroll-infinite 20s linear infinite;
+			}
+
+			@media (min-width: 768px) {
+				.animate-scroll-tablet {
+					animation: scroll-infinite 40s linear infinite;
+				}
+			}
+
+			@media (min-width: 1024px) {
+				.animate-scroll-desktop {
+					animation: scroll-infinite 60s linear infinite;
+				}
+			}
+		</style>
 	</div>
 </section>
