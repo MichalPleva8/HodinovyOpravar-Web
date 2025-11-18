@@ -1,0 +1,79 @@
+---
+// Top Bar - Contact info and social links (visible on desktop only)
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { contact } from '../../data/contact'
+import { socials } from '../../data/socials'
+
+const socialIcons = {
+	facebook: Facebook,
+	twitter: Facebook,
+	instagram: Instagram,
+	youtube: Facebook,
+	linkedin: Linkedin,
+}
+---
+
+<div class="hidden border-b border-neutral-300 bg-white py-2 lg:block">
+	<div class="container mx-auto px-6">
+		<div class="flex items-center justify-between">
+			<!-- Left: Contact Info -->
+			<div class="flex items-center gap-6 text-sm text-neutral-600">
+				<!-- Email -->
+				<a
+					href={`mailto:${contact.email}`}
+					class="group flex items-center gap-2 transition-colors hover:text-primary"
+				>
+					<div
+						class="group-hover:bg-primary-light flex h-7 w-7 items-center justify-center rounded-full bg-white transition-colors"
+					>
+						<Mail className="h-3.5 w-3.5 text-primary" />
+					</div>
+					<span class="font-medium">{contact.email}</span>
+				</a>
+
+				<!-- Phone -->
+				<a
+					href={`tel:${contact.phone}`}
+					class="group flex items-center gap-2 transition-colors hover:text-primary"
+				>
+					<div
+						class="group-hover:bg-primary-light flex h-7 w-7 items-center justify-center rounded-full bg-white transition-colors"
+					>
+						<Phone className="h-3.5 w-3.5 text-primary" />
+					</div>
+					<span class="font-medium">{contact.phoneDisplay}</span>
+				</a>
+
+				<!-- Address -->
+				<div class="flex items-center gap-2">
+					<div
+						class="flex h-7 w-7 items-center justify-center rounded-full bg-white transition-colors"
+					>
+						<MapPin className="h-3.5 w-3.5 text-primary" />
+					</div>
+					<span class="font-medium">{contact.address}</span>
+				</div>
+			</div>
+
+			<!-- Right: Social Links -->
+			<div class="flex items-center gap-3">
+				{
+					socials.map((social) => {
+						const Icon = socialIcons[social.icon]
+						return (
+							<a
+								href={social.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={social.name}
+								class="group flex h-7 w-7 items-center justify-center rounded-full bg-white transition-all hover:bg-primary"
+							>
+								<Icon className="h-3.5 w-3.5 text-primary transition-colors group-hover:text-white" />
+							</a>
+						)
+					})
+				}
+			</div>
+		</div>
+	</div>
+</div>

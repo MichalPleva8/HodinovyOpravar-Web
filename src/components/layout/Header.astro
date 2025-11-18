@@ -1,6 +1,8 @@
 ---
 // src/components/layout/Header.astro
 import { Phone, Menu } from 'lucide-react'
+import TopBar from './TopBar.astro'
+import Button from '../ui/Button.astro'
 
 const navigation = [
 	{ name: 'Domov', href: '/' },
@@ -11,89 +13,92 @@ const navigation = [
 const currentPath = Astro.url.pathname
 ---
 
-<header class="sticky top-0 z-50 bg-white shadow-sm">
-	<nav class="container mx-auto px-6 py-4">
-		<div class="flex items-center justify-between">
-			<!-- Logo -->
-			<a href="/" class="flex items-center">
-				<img src="/images/logo.png" alt="Hodinový opravár" class="h-12" />
-			</a>
-
-			<!-- Desktop Navigation -->
-			<ul class="hidden items-center gap-8 md:flex">
-				{
-					navigation.map((item) => (
-						<li>
-							<a
-								href={item.href}
-								class={`text-body font-medium transition-colors ${
-									currentPath === item.href
-										? 'text-primary font-bold'
-										: 'hover:text-primary text-neutral-700'
-								}`}
-							>
-								{item.name}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-
-			<!-- CTA Button (Desktop) -->
-			<div class="hidden md:block">
-				<a
-					href="tel:+421903566644"
-					class="bg-primary hover:bg-primary-hover shadow-button hover:shadow-button-hover inline-flex items-center gap-2 rounded-lg px-6 py-3 font-medium text-white transition-all duration-200 hover:-translate-y-0.5"
-				>
-					<Phone className="h-5 w-5" />
-					Zavolať teraz
+<>
+	<TopBar />
+	<div class="z-50 border-b border-neutral-300 bg-white" style="position: sticky; top: 0;">
+		<nav class="container mx-auto px-6 py-4">
+			<div class="flex items-center justify-between">
+				<!-- Logo -->
+				<a href="/" class="flex items-center">
+					<img src="/images/logo.png" alt="Hodinový opravár" class="h-12" />
 				</a>
+
+				<!-- Desktop Navigation + CTA -->
+				<div class="hidden items-center gap-8 md:flex">
+					<!-- Navigation Links -->
+					<ul class="flex items-center gap-8">
+						{
+							navigation.map((item) => (
+								<li>
+									<a
+										href={item.href}
+										class={`text-body font-medium transition-colors ${
+											currentPath === item.href
+												? 'text-primary font-bold'
+												: 'hover:text-primary text-neutral-700'
+										}`}
+									>
+										{item.name}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+
+					<!-- CTA Button -->
+					<Button href="tel:+421903566644" variant="primary" size="sm" class="gap-2">
+						<Phone className="h-5 w-5" />
+						Zavolať teraz
+					</Button>
+				</div>
+
+				<!-- Mobile Menu Button -->
+				<button
+					class="hover:text-primary p-2 text-neutral-700 transition-colors md:hidden"
+					aria-label="Otvoriť menu"
+					id="mobile-menu-button"
+				>
+					<Menu className="h-6 w-6" />
+				</button>
 			</div>
 
-			<!-- Mobile Menu Button -->
-			<button
-				class="hover:text-primary p-2 text-neutral-700 transition-colors md:hidden"
-				aria-label="Otvoriť menu"
-				id="mobile-menu-button"
-			>
-				<Menu className="h-6 w-6" />
-			</button>
-		</div>
+			<!-- Mobile Navigation (hidden by default, toggle with JS) -->
+			<div id="mobile-menu" class="hidden pt-4 pb-2 md:hidden">
+				<ul class="flex flex-col space-y-2">
+					{
+						navigation.map((item) => (
+							<li>
+								<a
+									href={item.href}
+									class={`text-body block rounded-lg px-4 py-2 font-medium transition-colors ${
+										currentPath === item.href
+											? 'bg-primary-light text-primary font-bold'
+											: 'text-neutral-700 hover:bg-neutral-200'
+									}`}
+								>
+									{item.name}
+								</a>
+							</li>
+						))
+					}
+				</ul>
 
-		<!-- Mobile Navigation (hidden by default, toggle with JS) -->
-		<div id="mobile-menu" class="hidden pt-4 pb-2 md:hidden">
-			<ul class="flex flex-col space-y-2">
-				{
-					navigation.map((item) => (
-						<li>
-							<a
-								href={item.href}
-								class={`text-body block rounded-lg px-4 py-2 font-medium transition-colors ${
-									currentPath === item.href
-										? 'bg-primary-light text-primary font-bold'
-										: 'text-neutral-700 hover:bg-neutral-200'
-								}`}
-							>
-								{item.name}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-
-			<!-- Mobile CTA Button -->
-			<div class="mt-4 px-4">
-				<a
-					href="tel:+421903566644"
-					class="bg-primary hover:bg-primary-hover flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-medium text-white transition-all duration-200"
-				>
-					<Phone className="h-5 w-5" />
-					Zavolať teraz
-				</a>
+				<!-- Mobile CTA Button -->
+				<div class="mt-4 px-4">
+					<Button
+						href="tel:+421903566644"
+						variant="primary"
+						size="md"
+						class="w-full gap-2"
+					>
+						<Phone className="h-5 w-5" />
+						Zavolať teraz
+					</Button>
+				</div>
 			</div>
-		</div>
-	</nav>
-</header>
+		</nav>
+	</div>
+</>
 
 <script>
 	// Simple mobile menu toggle
