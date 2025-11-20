@@ -37,12 +37,12 @@ const currentPath = Astro.url.pathname
 						src="/images/logo.png"
 						alt="Hodinový opravár"
 						id="header-logo"
-						class="h-12 transition-all duration-300 ease-out md:h-[62px]"
+						class="h-12 transition-all duration-300 ease-out lg:h-[62px]"
 					/>
 				</a>
 
 				<!-- Desktop Navigation + CTA -->
-				<div class="hidden items-center gap-8 py-2 md:flex">
+				<div class="hidden items-center gap-8 py-2 lg:flex">
 					<!-- Navigation Links -->
 					<ul class="flex items-center gap-8">
 						{
@@ -72,7 +72,7 @@ const currentPath = Astro.url.pathname
 
 				<!-- Mobile Menu Button -->
 				<button
-					class="hover:text-primary p-2 text-neutral-700 transition-colors md:hidden"
+					class="hover:text-primary p-2 text-neutral-700 transition-colors lg:hidden"
 					aria-label="Otvoriť menu"
 					id="mobile-menu-button"
 				>
@@ -85,7 +85,7 @@ const currentPath = Astro.url.pathname
 	<!-- Mobile Navigation Overlay (below header) -->
 	<div
 		id="mobile-menu"
-		class="mobile-menu-overlay fixed right-0 left-0 z-40 bg-white transition-transform duration-300 ease-in-out md:hidden"
+		class="mobile-menu-overlay fixed right-0 left-0 z-40 bg-white transition-transform duration-300 ease-in-out lg:hidden"
 		style="transform: translateY(-100%); top: var(--header-height, 72px); height: calc(100vh - var(--header-height, 72px));"
 	>
 		<div class="flex h-full flex-col justify-between overflow-y-auto px-6 pt-8 pb-12">
@@ -156,7 +156,7 @@ const currentPath = Astro.url.pathname
 	}
 
 	/* Desktop: Sticky positioning */
-	@media (min-width: 768px) {
+	@media (min-width: 1024px) {
 		.main-nav {
 			position: sticky;
 			top: 0;
@@ -217,7 +217,7 @@ const currentPath = Astro.url.pathname
 		})
 
 		// Logo size animation on scroll (desktop only)
-		if (window.innerWidth >= 768) {
+		if (window.innerWidth >= 1024) {
 			const logo = document.getElementById('header-logo')
 
 			const observer = new IntersectionObserver(
@@ -226,12 +226,12 @@ const currentPath = Astro.url.pathname
 						if (logo) {
 							if (entry.isIntersecting) {
 								// Not sticky - large logo (1.3x)
-								logo.classList.remove('md:h-12')
-								logo.classList.add('md:h-[62px]')
+								logo.classList.remove('lg:h-12')
+								logo.classList.add('lg:h-[62px]')
 							} else {
 								// Sticky - small logo
-								logo.classList.remove('md:h-[62px]')
-								logo.classList.add('md:h-12')
+								logo.classList.remove('lg:h-[62px]')
+								logo.classList.add('lg:h-12')
 							}
 						}
 					})

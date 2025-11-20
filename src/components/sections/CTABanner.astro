@@ -2,31 +2,84 @@
 // CTA Banner Section - Call to Action
 import Button from '../ui/Button.astro'
 import { Phone } from 'lucide-react'
+import { contact } from '../../data/contact'
 ---
 
-<section class="bg-primary px-6 py-16 text-white lg:py-20">
-	<div class="container mx-auto max-w-4xl text-center">
-		<h2 class="text-display-2 mb-4">Máte problém? Vyriešime ho ešte dnes!</h2>
-		<p class="text-body-lg mb-8 text-white/90">
-			Kontaktujte nás telefonicky alebo cez formulár a my sa vám ozveme čo najskôr.
-		</p>
+<section class="bg-primary relative overflow-hidden pt-12">
+	<!-- Background Decorative Pipes -->
+	<img
+		src="/images/cta-banner/pipe-top-left.svg"
+		alt=""
+		class="absolute top-0 left-0 h-auto w-32 md:w-40 lg:w-48"
+		aria-hidden="true"
+	/>
+	<img
+		src="/images/cta-banner/pipe-top-right.svg"
+		alt=""
+		class="absolute top-0 right-0 h-auto w-32 md:w-40 lg:w-48"
+		aria-hidden="true"
+	/>
+	<img
+		src="/images/cta-banner/pipe-bottom-left.svg"
+		alt=""
+		class="absolute bottom-0 left-0 h-auto w-32 md:w-40 lg:w-48"
+		aria-hidden="true"
+	/>
+	<img
+		src="/images/cta-banner/pipe-bottom-right.svg"
+		alt=""
+		class="absolute right-0 bottom-0 h-auto w-32 md:w-40 lg:w-48"
+		aria-hidden="true"
+	/>
 
-		<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-			<a
-				href="tel:+421903566644"
-				class="text-display-4 group inline-flex items-center gap-3 transition-all hover:underline"
-			>
-				<Phone
-					className="h-7 w-7 transition-transform group-hover:scale-110 md:h-8 md:w-8"
-				/>
-				0903 56 66 44
-			</a>
+	<div
+		class="relative z-10 container mx-auto grid items-center gap-0 lg:grid-cols-[35%_65%] lg:gap-4"
+	>
+		<!-- Left side - Image -->
+		<div class="order-2 flex items-center justify-center lg:order-1 lg:justify-end">
+			<img
+				src="/images/cta-banner/roman-half-cut-right.png"
+				alt="Profesionálny opravár"
+				class="h-full w-4/5 object-contain md:w-3/5 lg:w-full"
+			/>
+		</div>
 
-			<span class="text-body hidden text-white/70 sm:inline">alebo</span>
+		<!-- Right side - Content -->
+		<div
+			class="order-1 flex items-center justify-center px-6 pt-16 pb-8 lg:order-2 lg:justify-start lg:pt-20 lg:pr-0 lg:pb-20 lg:pl-12"
+		>
+			<div class="text-center lg:max-w-[800px] lg:text-left">
+				<h2
+					class="text-display-1 mx-auto mb-4 text-white md:max-w-[600px] lg:mx-0 lg:max-w-full"
+				>
+					Máte problém? Vyriešime ho ešte dnes!
+				</h2>
+				<p
+					class="text-body-lg mx-auto mb-8 text-white/90 md:max-w-[600px] lg:mx-0 lg:max-w-[600px]"
+				>
+					Kontaktujte nás telefonicky alebo cez formulár a my sa vám ozveme čo najskôr.
+				</p>
 
-			<Button href="/kontakt" variant="primary-white" size="lg">
-				Získať cenovú ponuku
-			</Button>
+				<div
+					class="flex flex-col items-center justify-center gap-4 sm:flex-row lg:items-start lg:justify-start"
+				>
+					<a
+						href={`tel:${contact.phone}`}
+						class="text-h2 group hover:shadow-button-hover active:shadow-button-active inline-flex items-center gap-3 self-center text-white transition-all duration-300 hover:-translate-y-0.5 hover:text-neutral-800 active:translate-y-0"
+					>
+						<Phone
+							className="h-7 w-7 text-white transition-all group-hover:scale-110 group-hover:text-neutral-800 md:h-8 md:w-8"
+						/>
+						{contact.phoneDisplay}
+					</a>
+
+					<span class="text-body self-center !font-bold text-white lg:mx-2">alebo</span>
+
+					<Button href="/kontakt" variant="primary-white" size="lg">
+						Kontaktný formulár
+					</Button>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
