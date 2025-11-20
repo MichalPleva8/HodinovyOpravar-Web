@@ -22,7 +22,7 @@ const stats = [
 const partners = [
 	{ name: 'Autobechcci', logo: '/images/partners/autobechcci.png' },
 	{ name: 'Dôvera', logo: '/images/partners/dovera.png' },
-	{ name: 'Globtúr', logo: '/images/partners/globtur.jpg' },
+	{ name: 'Globtúr', logo: '/images/partners/globtour.png' },
 	{ name: 'RegioJet', logo: '/images/partners/regiojet.png' },
 	{ name: 'Žilbyt', logo: '/images/partners/zilbyt.png' },
 ]
@@ -67,7 +67,9 @@ const partners = [
 						stats.map((stat) => (
 							<div>
 								<p class="text-display-1 mb-1 text-white">
+									<!-- prettier-ignore-start -->
 									{stat.value}<span style={`color: ${stat.plusColor}`}>+</span>
+									<!-- prettier-ignore-end -->
 								</p>
 								<p
 									class="text-neutral-400"
@@ -81,7 +83,9 @@ const partners = [
 				</div>
 
 				<div class="flex w-full justify-center lg:w-auto lg:justify-start">
-					<Button href="#referencie" variant="primary" size="lg" class="w-full md:w-auto">Referencie</Button>
+					<Button href="#referencie" variant="primary" size="lg" class="w-full md:w-auto"
+						>Referencie</Button
+					>
 				</div>
 			</div>
 		</div>
@@ -89,10 +93,15 @@ const partners = [
 		<!-- Partner Logos Stripe -->
 		<div class="mt-16 overflow-hidden lg:mt-20">
 			<div class="flex gap-8">
-				<div class="flex animate-scroll-mobile shrink-0 gap-8 md:animate-scroll-tablet lg:animate-scroll-desktop">
+				<div
+					class="animate-scroll-mobile md:animate-scroll-tablet lg:animate-scroll-desktop flex shrink-0 gap-8"
+				>
 					{
 						partners.map((partner) => (
-							<div class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]" style="aspect-ratio: 16/9;">
+							<div
+								class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]"
+								style="aspect-ratio: 16/9;"
+							>
 								<img
 									src={partner.logo}
 									alt={partner.name}
@@ -102,10 +111,16 @@ const partners = [
 						))
 					}
 				</div>
-				<div class="flex animate-scroll-mobile shrink-0 gap-8 md:animate-scroll-tablet lg:animate-scroll-desktop" aria-hidden="true">
+				<div
+					class="animate-scroll-mobile md:animate-scroll-tablet lg:animate-scroll-desktop flex shrink-0 gap-8"
+					aria-hidden="true"
+				>
 					{
 						partners.map((partner) => (
-							<div class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]" style="aspect-ratio: 16/9;">
+							<div
+								class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]"
+								style="aspect-ratio: 16/9;"
+							>
 								<img
 									src={partner.logo}
 									alt={partner.name}

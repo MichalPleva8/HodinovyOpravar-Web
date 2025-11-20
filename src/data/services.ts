@@ -32,7 +32,7 @@ export const services: Service[] = [
 	{
 		id: '2',
 		title: 'Elektrika',
-		icon: 'zap',
+		icon: 'wrench', // zap
 		description:
 			'Elektroinštalácie, opravy elektrospotrebičov a montáže. Profesionálne riešenie elektrických problémov.',
 		slug: 'elektrika',
@@ -49,7 +49,7 @@ export const services: Service[] = [
 	{
 		id: '3',
 		title: 'Opravy áut a bicyklov',
-		icon: 'car',
+		icon: 'wrench', // car
 		description:
 			'Základné opravy a údržba motorových vozidiel a bicyklov. Výmeny pneumatík, olejov a bežná servisná práca.',
 		slug: 'opravy-aut-bicyklov',
@@ -66,7 +66,7 @@ export const services: Service[] = [
 	{
 		id: '4',
 		title: 'Maľovanie a natieranie',
-		icon: 'paint-brush',
+		icon: 'wrench', // paint-brush
 		description:
 			'Interiérové a exteriérové maľovanie stien, stropov a povrchov. Príprava podkladu a profesionálne natieranie.',
 		slug: 'malovanie',
@@ -83,7 +83,7 @@ export const services: Service[] = [
 	{
 		id: '5',
 		title: 'Montáže nábytku',
-		icon: 'package',
+		icon: 'wrench', // package
 		description:
 			'Montáž a zostavenie nábytku všetkých typov. IKEA, JYSK a ďalší nábytok rýchlo a profesionálne.',
 		slug: 'montaze-nabytku',
@@ -100,7 +100,7 @@ export const services: Service[] = [
 	{
 		id: '6',
 		title: 'Drobné stavebné práce',
-		icon: 'hammer',
+		icon: 'wrench', // hammer
 		description:
 			'Obkladanie, dlažby, opravy stien a iné stavebné práce. Od menších opráv po rekonštrukcie.',
 		slug: 'stavebne-prace',
@@ -117,7 +117,7 @@ export const services: Service[] = [
 	{
 		id: '7',
 		title: 'Opravy v domácnosti',
-		icon: 'home',
+		icon: 'wrench', // home
 		description:
 			'Všeobecné opravy a údržba v domácnosti. Riešenie rôznych problémov a drobných porúch.',
 		slug: 'opravy-domacnost',
@@ -134,7 +134,7 @@ export const services: Service[] = [
 	{
 		id: '8',
 		title: 'Záhradné práce',
-		icon: 'flower',
+		icon: 'wrench', // flower
 		description:
 			'Údržba záhrady, kosenie trávnikov, strihanie živých plotov a ďalšie záhradnícke služby.',
 		slug: 'zahradne-prace',

@@ -26,13 +26,13 @@ const { title, description, icon, href, image } = Astro.props
 ---
 
 <div
-	class="rounded-card shadow-card hover:shadow-card-hover group flex h-full flex-col bg-white p-6 transition-all duration-300"
+	class="rounded-card shadow-card hover:shadow-card-hover group flex h-full flex-col overflow-hidden bg-white transition-all duration-300"
 >
 	{
 		image ? (
-			<img src={image} alt={title} class="mb-4 h-48 w-full rounded-lg object-cover" />
+			<img src={image} alt={title} class="h-1/2 w-full object-cover" />
 		) : (
-			<div class="bg-primary/10 group-hover:bg-primary/20 mb-4 flex h-16 w-16 items-center justify-center rounded-lg transition-colors">
+			<div class="bg-primary/10 group-hover:bg-primary/20 m-6 mb-4 flex h-16 w-16 items-center justify-center rounded-lg transition-colors">
 				{/* Icon placeholder - will be replaced with Lucide icons when implemented */}
 				<svg
 					class="text-primary h-8 w-8"
@@ -57,22 +57,27 @@ const { title, description, icon, href, image } = Astro.props
 		)
 	}
 
-	<h3 class="text-h4 mb-2 text-neutral-800">{title}</h3>
-	<p class="text-body mb-4 line-clamp-3 flex-grow text-neutral-600">{description}</p>
+	<div class="flex flex-grow flex-col p-6">
+		<h3 class="text-h4 mb-2 text-neutral-800">{title}</h3>
+		<p class="text-body mb-4 line-clamp-3 flex-grow text-neutral-600">{description}</p>
 
-	<a
-		href={href}
-		class="text-primary hover:text-primary-hover text-body-sm group/link mt-auto inline-flex cursor-pointer items-center gap-2 font-medium"
-	>
-		Zistiť viac
-		<svg
-			class="h-4 w-4 transition-transform group-hover/link:translate-x-1"
-			fill="none"
-			stroke="currentColor"
-			viewBox="0 0 24 24"
+		<a
+			href={href}
+			class="text-primary hover:text-primary-hover text-body-sm group/link mt-auto inline-flex cursor-pointer items-center gap-2 font-medium"
 		>
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
-			></path>
-		</svg>
-	</a>
+			Zistiť viac
+			<svg
+				class="h-4 w-4 transition-transform group-hover/link:translate-x-1"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M9 5l7 7-7 7"></path>
+			</svg>
+		</a>
+	</div>
 </div>

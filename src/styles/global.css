@@ -348,7 +348,7 @@
 		}
 	}
 
-	/* H3: 20px → 22px → 24px */
+	/* H3: 20px → 24px → 24px */
 	.text-h3 {
 		font-size: 20px;
 		line-height: var(--line-height-h3);
@@ -357,7 +357,7 @@
 
 	@media (min-width: 768px) {
 		.text-h3 {
-			font-size: 22px;
+			font-size: 24px;
 		}
 	}
 
