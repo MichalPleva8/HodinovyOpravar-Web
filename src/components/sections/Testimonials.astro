@@ -1,6 +1,6 @@
 ---
 // Testimonials Section - Customer Reviews
-import TestimonialCard from '../ui/TestimonialCard.astro'
+import TestimonialsCarousel from '../interactive/TestimonialsCarousel'
 import type { Testimonial } from '../../data/testimonials'
 
 interface Props {
@@ -14,21 +14,19 @@ const { testimonials, featured = false } = Astro.props
 const displayedTestimonials = featured ? testimonials.slice(0, 6) : testimonials
 ---
 
-<section id="referencie" class="bg-neutral-200 px-6 py-20 lg:py-32">
+<section id="referencie" class="bg-white px-6 py-20 lg:py-32">
 	<div class="container mx-auto max-w-7xl">
 		<!-- Section Header -->
-		<div class="mb-12 text-center lg:mb-16">
-			<p class="text-primary text-subtitle mb-2 tracking-wide uppercase">REFERENCIE</p>
-			<h2 class="text-h2 mb-4 text-neutral-800">Čo hovoria naši zákazníci</h2>
+		<div class="mb-12 text-center lg:mb-8">
+			<p class="text-primary text-subtitle mb-3 tracking-wide uppercase">REFERENCIE</p>
+			<h2 class="text-display-2 mb-4 text-neutral-800">Čo hovoria naši zákazníci</h2>
 			<p class="text-body mx-auto max-w-2xl text-neutral-600">
 				Prečítajte si hodnotenia od spokojných zákazníkov, ktorí využili naše služby. Vaša
 				spokojnosť je naša priorita.
 			</p>
 		</div>
 
-		<!-- Testimonials Grid -->
-		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{displayedTestimonials.map((testimonial) => <TestimonialCard {...testimonial} />)}
-		</div>
+		<!-- Testimonials Carousel -->
+		<TestimonialsCarousel testimonials={displayedTestimonials} client:load />
 	</div>
 </section>
