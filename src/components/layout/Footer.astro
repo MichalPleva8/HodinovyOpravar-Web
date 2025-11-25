@@ -1,42 +1,47 @@
 ---
 // src/components/layout/Footer.astro
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
+import { FaFacebook } from 'react-icons/fa'
+import { RiInstagramFill } from 'react-icons/ri'
+import FooterContactForm from '../interactive/FooterContactForm'
+import { contact } from '../../data/contact'
 
 const currentYear = new Date().getFullYear()
 
 const navigation = {
 	main: [
-		{ name: 'Domov', href: '/' },
-		{ name: 'Služby', href: '/sluzby' },
+		{ name: 'Domov', href: '/#' },
+		{ name: 'Služby', href: '/#sluzby' },
+		{ name: 'Referencie', href: '/#referencie' },
 		{ name: 'Kontakt', href: '/kontakt' },
 	],
 	social: [
-		{ name: 'Facebook', href: '#', icon: Facebook },
-		{ name: 'Instagram', href: '#', icon: Instagram },
+		{ name: 'Facebook', href: '#', icon: FaFacebook },
+		{ name: 'Instagram', href: '#', icon: RiInstagramFill },
 	],
 }
 ---
 
-<footer class="bg-neutral-800 text-white">
+<footer class="border-t border-neutral-300 bg-white">
 	<div class="container mx-auto px-6 py-12">
-		<div class="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
+		<div class="mb-8 grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1.5fr_1fr_1fr]">
 			<!-- Logo & Description -->
-			<div>
-				<img src="/images/logo.png" alt="Hodinový opravár" class="mb-4 h-12" />
-				<p class="text-body-sm text-neutral-400">
+			<div class="max-w-[350px] md:col-span-2 lg:col-span-1">
+				<img src="/images/logo.png" alt="Hodinový opravár" class="mb-6 h-24" />
+				<p class="text-md text-neutral-600 lg:text-lg">
 					Spoľahlivé opravárenské služby v Žiline a okolí. Voda, elektrika, kúrenie a
 					mnoho ďalších služieb.
 				</p>
 
 				<!-- Social Links -->
-				<div class="mt-6 flex gap-3">
+				<div class="mt-9 flex gap-3">
 					{
 						navigation.social.map((item) => {
 							const Icon = item.icon
 							return (
 								<a
 									href={item.href}
-									class="hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full bg-neutral-700 transition-colors duration-200"
+									class="border-primary text-primary hover:bg-primary hover:border-primary flex h-10 w-10 items-center justify-center rounded-[10px] border transition-all duration-300 hover:-translate-y-0.5 hover:text-white active:translate-y-0"
 									aria-label={item.name}
 								>
 									<Icon className="w-5 h-5" />
@@ -47,64 +52,76 @@ const navigation = {
 				</div>
 			</div>
 
-			<!-- Quick Links -->
+			<!-- Contact & Quick Links -->
 			<div>
-				<h3 class="text-h5 mb-4">Rýchle odkazy</h3>
-				<ul class="space-y-2">
-					{
-						navigation.main.map((item) => (
-							<li>
+				<!-- Contact -->
+				<div>
+					<h3 class="text-h4 text-primary mb-4">Kontakt</h3>
+					<ul class="space-y-3">
+						<li class="flex items-start gap-3">
+							<Phone className="text-primary mt-0.5 h-5 w-5 shrink-0" />
+							<div>
 								<a
-									href={item.href}
-									class="text-body-sm inline-block text-neutral-400 transition-colors duration-200 hover:text-white"
+									href={`tel:${contact.phone}`}
+									class="text-body-sm hover:text-primary text-neutral-700 transition-colors duration-200"
 								>
-									{item.name}
+									{contact.phoneDisplay}
 								</a>
-							</li>
-						))
-					}
-				</ul>
+							</div>
+						</li>
+						<li class="flex items-start gap-3">
+							<Mail className="text-primary mt-0.5 h-5 w-5 shrink-0" />
+							<div>
+								<a
+									href={`mailto:${contact.email}`}
+									class="text-body-sm hover:text-primary text-neutral-700 transition-colors duration-200"
+								>
+									{contact.email}
+								</a>
+							</div>
+						</li>
+						<li class="flex items-start gap-3">
+							<MapPin className="text-primary mt-0.5 h-5 w-5 shrink-0" />
+							<div>
+								<span class="text-body-sm text-neutral-700">{contact.address}</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Quick Links -->
+				<div class="mt-8">
+					<h3 class="text-h4 text-primary mb-4">Rýchle odkazy</h3>
+					<ul class="space-y-2">
+						{
+							navigation.main.map((item) => (
+								<li>
+									<a
+										href={item.href}
+										class="text-body-sm hover:text-primary inline-block text-neutral-700 transition-colors duration-200"
+									>
+										{item.name}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 			</div>
 
-			<!-- Contact -->
+			<!-- Contact Form -->
 			<div>
-				<h3 class="text-h5 mb-4">Kontakt</h3>
-				<ul class="space-y-3">
-					<li class="flex items-start gap-3">
-						<Phone className="text-primary mt-0.5 h-5 w-5 flex-shrink-0" />
-						<div>
-							<a
-								href="tel:+421903566644"
-								class="text-body-sm text-neutral-400 transition-colors duration-200 hover:text-white"
-							>
-								0903 56 66 44
-							</a>
-						</div>
-					</li>
-					<li class="flex items-start gap-3">
-						<Mail className="text-primary mt-0.5 h-5 w-5 flex-shrink-0" />
-						<div>
-							<a
-								href="mailto:info@hodinovyopravar.sk"
-								class="text-body-sm text-neutral-400 transition-colors duration-200 hover:text-white"
-							>
-								info@hodinovyopravar.sk
-							</a>
-						</div>
-					</li>
-					<li class="flex items-start gap-3">
-						<MapPin className="text-primary mt-0.5 h-5 w-5 flex-shrink-0" />
-						<div>
-							<span class="text-body-sm text-neutral-400">Žilina a okolie</span>
-						</div>
-					</li>
-				</ul>
+				<h3 class="text-h4 text-primary mb-4">Napíšte nám</h3>
+				<p class="text-body-sm mb-4 text-neutral-600">
+					Máte otázku? Kontaktujte nás priamo cez formulár.
+				</p>
+				<FooterContactForm client:load />
 			</div>
 		</div>
 
 		<!-- Bottom Bar -->
-		<div class="border-t border-neutral-700 pt-8 text-center">
-			<p class="text-body-sm text-neutral-400">
+		<div class="border-t border-neutral-300 pt-8 text-center">
+			<p class="text-body-sm text-neutral-600">
 				&copy; {currentYear} Hodinový opravár. Všetky práva vyhradené.
 			</p>
 		</div>
