@@ -5,24 +5,18 @@ import { FaFacebook } from 'react-icons/fa'
 import { RiInstagramFill } from 'react-icons/ri'
 import FooterContactForm from '../interactive/FooterContactForm'
 import { contact } from '../../data/contact'
+import { navigation } from '../../data/navigation'
+import { socials } from '../../data/socials'
 
 const currentYear = new Date().getFullYear()
 
-const navigation = {
-	main: [
-		{ name: 'Domov', href: '/#' },
-		{ name: 'Služby', href: '/#sluzby' },
-		{ name: 'Referencie', href: '/#referencie' },
-		{ name: 'Kontakt', href: '/kontakt' },
-	],
-	social: [
-		{ name: 'Facebook', href: '#', icon: FaFacebook },
-		{ name: 'Instagram', href: '#', icon: RiInstagramFill },
-	],
+const socialIcons = {
+	facebook: FaFacebook,
+	instagram: RiInstagramFill,
 }
 ---
 
-<footer class="border-t border-neutral-300 bg-white">
+<footer id="kontakt" class="border-t border-neutral-300 bg-white">
 	<div class="container mx-auto px-6 py-12 lg:pt-20">
 		<div
 			class="mb-8 grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1.5fr_1fr_1fr]"
@@ -38,13 +32,15 @@ const navigation = {
 				<!-- Social Links -->
 				<div class="mt-9 flex gap-3">
 					{
-						navigation.social.map((item) => {
-							const Icon = item.icon
+						socials.map((social) => {
+							const Icon = socialIcons[social.icon]
 							return (
 								<a
-									href={item.href}
+									href={social.url}
+									target="_blank"
+									rel="noopener noreferrer"
 									class="border-primary text-primary hover:bg-primary hover:border-primary flex h-10 w-10 items-center justify-center rounded-[10px] border transition-all duration-300 hover:-translate-y-0.5 hover:text-white active:translate-y-0"
-									aria-label={item.name}
+									aria-label={social.name}
 								>
 									<Icon className="w-5 h-5" />
 								</a>
@@ -96,7 +92,7 @@ const navigation = {
 					<h3 class="text-h4 text-primary mb-4">Rýchle odkazy</h3>
 					<ul class="space-y-2">
 						{
-							navigation.main.map((item) => (
+							navigation.map((item) => (
 								<li>
 									<a
 										href={item.href}

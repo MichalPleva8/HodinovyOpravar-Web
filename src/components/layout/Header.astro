@@ -4,6 +4,8 @@ import { Phone, Menu, Facebook, Instagram, Linkedin } from 'lucide-react'
 import TopBar from './TopBar.astro'
 import Button from '../ui/Button.astro'
 import { socials } from '../../data/socials'
+import { navigation } from '../../data/navigation'
+import { contact } from '../../data/contact'
 
 const socialIcons = {
 	facebook: Facebook,
@@ -12,13 +14,6 @@ const socialIcons = {
 	youtube: Facebook,
 	linkedin: Linkedin,
 }
-
-const navigation = [
-	{ name: 'Domov', href: '/#' },
-	{ name: 'Služby', href: '/#sluzby' },
-	{ name: 'Referencie', href: '/#referencie' },
-	{ name: 'Kontakt', href: '/kontakt' },
-]
 
 const currentPath = Astro.url.pathname
 ---
@@ -64,7 +59,7 @@ const currentPath = Astro.url.pathname
 					</ul>
 
 					<!-- CTA Button -->
-					<Button href="tel:+421903566644" variant="primary" size="sm" class="gap-2">
+					<Button href={`tel:${contact.phone}`} variant="primary" size="sm" class="gap-2">
 						<Phone className="h-5 w-5" />
 						Zavolať teraz
 					</Button>
@@ -132,7 +127,7 @@ const currentPath = Astro.url.pathname
 				<!-- Mobile CTA Button -->
 				<div class="mt-6">
 					<Button
-						href="tel:+421903566644"
+						href={`tel:${contact.phone}`}
 						variant="primary"
 						size="md"
 						class="w-full gap-2"

@@ -10,17 +10,12 @@ export interface SocialLink {
 export const socials: SocialLink[] = [
 	{
 		name: 'Facebook',
-		url: 'https://facebook.com',
+		url: 'https://www.facebook.com/hodinovyopravarzilina/',
 		icon: 'facebook',
 	},
 	{
 		name: 'Instagram',
-		url: 'https://instagram.com',
+		url: 'https://www.instagram.com/hodinovy_opravar_zilina/',
 		icon: 'instagram',
-	},
-	{
-		name: 'LinkedIn',
-		url: 'https://linkedin.com',
-		icon: 'linkedin',
 	},
 ]
