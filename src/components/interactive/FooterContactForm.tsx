@@ -63,9 +63,9 @@ export default function FooterContactForm() {
 					name="name"
 					value={formData.name}
 					onChange={handleChange}
-					placeholder="Vaše meno"
+					placeholder="Meno a priezvisko"
 					required
-					className="w-full rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+					className="focus:border-primary focus:ring-primary/20 w-full rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:ring-2 focus:outline-none"
 				/>
 			</div>
 
@@ -77,9 +77,9 @@ export default function FooterContactForm() {
 					name="email"
 					value={formData.email}
 					onChange={handleChange}
-					placeholder="Váš email"
+					placeholder="Email"
 					required
-					className="w-full rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+					className="focus:border-primary focus:ring-primary/20 w-full rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:ring-2 focus:outline-none"
 				/>
 			</div>
 
@@ -93,7 +93,7 @@ export default function FooterContactForm() {
 					onChange={handleChange}
 					placeholder="Telefónne číslo"
 					required
-					className="w-full rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+					className="focus:border-primary focus:ring-primary/20 w-full rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:ring-2 focus:outline-none"
 				/>
 			</div>
 
@@ -107,7 +107,7 @@ export default function FooterContactForm() {
 					onChange={handleChange}
 					placeholder="Vaša správa"
 					required
-					className="w-full resize-none rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+					className="focus:border-primary focus:ring-primary/20 w-full resize-none rounded-[10px] border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-800 placeholder-neutral-500 transition-all focus:ring-2 focus:outline-none"
 				/>
 			</div>
 
@@ -115,7 +115,7 @@ export default function FooterContactForm() {
 			<button
 				type="submit"
 				disabled={isSubmitting}
-				className="w-full rounded-[10px] bg-primary px-4 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+				className="bg-primary hover:bg-primary/90 w-full rounded-[10px] px-4 py-2.5 text-sm font-medium text-white transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50"
 			>
 				{isSubmitting ? 'Odosiela sa...' : 'Odoslať'}
 			</button>

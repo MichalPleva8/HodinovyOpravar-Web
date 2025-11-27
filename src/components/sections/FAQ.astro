@@ -1,0 +1,167 @@
+---
+// FAQ Section Component - Hodinový opravár
+import { faq } from '../../data/faq'
+---
+
+<section id="faq" class="bg-neutral-800 px-6 py-20 pb-24 text-white lg:py-32 lg:pb-40">
+	<div class="container mx-auto max-w-4xl">
+		<!-- Section Header -->
+		<div class="mb-12 text-center">
+			<p class="text-primary text-subtitle mb-3 tracking-wide uppercase">FAQ</p>
+			<h2 class="text-display-2 mb-4">Často kladené otázky</h2>
+			<p class="text-body mx-auto max-w-2xl text-neutral-300">
+				Máte otázky? Pozrite si odpovede na najčastejšie otázky, ktoré nám naši zákazníci
+				kladú. Ak nenájdete odpoveď na svoju otázku, neváhajte nás kontaktovať.
+			</p>
+		</div>
+
+		<!-- FAQ List -->
+		<div class="space-y-6">
+			{
+				faq.map((item) => (
+					<details class="faq-item group shadow-card hover:shadow-card-hover overflow-hidden rounded-lg bg-white transition-all duration-300 hover:-translate-y-1">
+						<summary class="faq-summary flex cursor-pointer list-none items-center justify-between py-10 pr-3 pl-8 transition-all duration-450 select-none lg:py-12 lg:pr-6 lg:pl-12">
+							<h3 class="text-h3 group-open:text-primary group-hover:text-primary max-w-[95%] pr-8 font-bold text-neutral-800 transition-colors duration-450">
+								{item.question}
+							</h3>
+
+							{/* <!-- Chevron Icon --> */}
+							<svg
+								class="faq-chevron h-[38px] w-[38px] shrink-0 text-neutral-800 transition-transform duration-450"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 5l7 7-7 7"
+								/>
+							</svg>
+						</summary>
+
+						{/* <!-- Answer Content --> */}
+						<div class="faq-answer">
+							<div class="faq-answer-content pl-6 pr-[17px] lg:px-12">
+								{item.answerHtml ? (
+									<div
+										class="max-w-[95%] text-lg leading-relaxed text-neutral-600"
+										set:html={item.answerHtml}
+									/>
+								) : (
+									<p class="max-w-[95%] text-lg leading-relaxed text-neutral-600">
+										{item.answer}
+									</p>
+								)}
+							</div>
+						</div>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	/* Smooth animation for details element */
+	details summary::-webkit-details-marker {
+		display: none;
+	}
+
+	details summary::marker {
+		display: none;
+	}
+
+	/* Animate the FAQ answer opening and closing */
+	.faq-answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.45s ease-in-out;
+	}
+
+	details[open] .faq-answer {
+		max-height: 800px;
+	}
+
+	details.closing .faq-answer {
+		max-height: 0;
+	}
+
+	/* Chevron rotation */
+	details[open] .faq-chevron {
+		transform: rotate(90deg);
+	}
+
+	details.closing .faq-chevron {
+		transform: rotate(0deg);
+	}
+
+	/* Reduce summary padding-bottom when open */
+	details[open] .faq-summary {
+		padding-bottom: 1.5rem;
+	}
+
+	details.closing .faq-summary {
+		padding-bottom: 2.5rem;
+	}
+
+	@media (min-width: 1024px) {
+		details.closing .faq-summary {
+			padding-bottom: 3rem;
+		}
+	}
+
+	/* Animate answer text fade and slide */
+	.faq-answer-content {
+		padding-bottom: 2.5rem;
+		opacity: 0;
+		transform: translateY(20px);
+		transition:
+			opacity 0.45s ease-out,
+			transform 0.45s ease-out;
+	}
+
+	@media (min-width: 1024px) {
+		.faq-answer-content {
+			padding-bottom: 52px;
+		}
+	}
+
+	details[open] .faq-answer-content {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	details.closing .faq-answer-content {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+</style>
+
+<script>
+	// Handle FAQ accordion animation on close
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqItems = document.querySelectorAll<HTMLDetailsElement>('.faq-item')
+
+		faqItems.forEach((details) => {
+			const summary = details.querySelector('summary')
+
+			summary?.addEventListener('click', (e) => {
+				// If already open, prevent default and animate close
+				if (details.open) {
+					e.preventDefault()
+
+					// Add closing class to trigger animation
+					details.classList.add('closing')
+
+					// Wait for animation to complete, then close
+					setTimeout(() => {
+						details.removeAttribute('open')
+						details.classList.remove('closing')
+					}, 450) // Match the CSS transition duration
+				}
+			})
+		})
+	})
+</script>

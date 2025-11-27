@@ -6,6 +6,7 @@ import Stats from '../components/sections/Stats.astro'
 import Services from '../components/sections/Services.astro'
 import Testimonials from '../components/sections/Testimonials.astro'
 import CTABanner from '../components/sections/CTABanner.astro'
+import FAQ from '../components/sections/FAQ.astro'
 
 import { services } from '../data/services'
 import { testimonials } from '../data/testimonials'
@@ -27,4 +28,5 @@ const featuredTestimonials = testimonials.slice(0, 6)
 	<Services services={featuredServices} />
 	<CTABanner />
 	<Testimonials testimonials={featuredTestimonials} />
+	<FAQ />
 </BaseLayout>
