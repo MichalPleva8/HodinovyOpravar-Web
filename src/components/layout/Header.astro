@@ -1,6 +1,6 @@
 ---
 // src/components/layout/Header.astro
-import { Phone, Menu, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Phone, Menu, X, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react'
 import TopBar from './TopBar.astro'
 import Button from '../ui/Button.astro'
 import { socials } from '../../data/socials'
@@ -71,7 +71,10 @@ const currentPath = Astro.url.pathname
 					aria-label="Otvoriť menu"
 					id="mobile-menu-button"
 				>
-					<Menu className="h-6 w-6" />
+					<div class="relative h-6 w-6">
+						<Menu className="menu-icon absolute inset-0 h-6 w-6 transition-all duration-300" />
+						<X className="close-icon absolute inset-0 h-6 w-6 -rotate-90 scale-0 opacity-0 transition-all duration-300" />
+					</div>
 				</button>
 			</div>
 		</nav>
@@ -187,19 +190,38 @@ const currentPath = Astro.url.pathname
 			if (mobileMenu) {
 				mobileMenu.style.transform = 'translateY(-100%)'
 			}
+			// Reset icon to menu state
+			const menuIcon = menuButton?.querySelector('.menu-icon')
+			const closeIcon = menuButton?.querySelector('.close-icon')
+			menuIcon?.classList.remove('rotate-90', 'scale-0', 'opacity-0')
+			menuIcon?.classList.add('rotate-0', 'scale-100', 'opacity-100')
+			closeIcon?.classList.remove('rotate-0', 'scale-100', 'opacity-100')
+			closeIcon?.classList.add('-rotate-90', 'scale-0', 'opacity-0')
 		}
 
 		menuButton?.addEventListener('click', () => {
 			const currentTransform = mobileMenu?.style.transform || 'translateY(-100%)'
 			const isOpen = currentTransform === 'translateY(0%)'
+			const menuIcon = menuButton.querySelector('.menu-icon')
+			const closeIcon = menuButton.querySelector('.close-icon')
 
 			if (isOpen) {
 				closeMobileMenu()
+				// Animate to menu icon
+				menuIcon?.classList.remove('rotate-90', 'scale-0', 'opacity-0')
+				menuIcon?.classList.add('rotate-0', 'scale-100', 'opacity-100')
+				closeIcon?.classList.remove('rotate-0', 'scale-100', 'opacity-100')
+				closeIcon?.classList.add('-rotate-90', 'scale-0', 'opacity-0')
 			} else {
 				// Open menu
 				if (mobileMenu) {
 					mobileMenu.style.transform = 'translateY(0%)'
 				}
+				// Animate to close icon
+				menuIcon?.classList.remove('rotate-0', 'scale-100', 'opacity-100')
+				menuIcon?.classList.add('rotate-90', 'scale-0', 'opacity-0')
+				closeIcon?.classList.remove('-rotate-90', 'scale-0', 'opacity-0')
+				closeIcon?.classList.add('rotate-0', 'scale-100', 'opacity-100')
 			}
 		})
 

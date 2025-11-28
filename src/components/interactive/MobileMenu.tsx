@@ -62,7 +62,14 @@ export default function MobileMenu({
 				aria-label={isOpen ? 'Zavrieť menu' : 'Otvoriť menu'}
 				aria-expanded={isOpen}
 			>
-				{isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+				<div className="relative h-6 w-6">
+					<Menu
+						className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isOpen ? 'scale-0 rotate-90 opacity-0' : 'scale-100 rotate-0 opacity-100'}`}
+					/>
+					<X
+						className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${isOpen ? 'scale-100 rotate-0 opacity-100' : 'scale-0 -rotate-90 opacity-0'}`}
+					/>
+				</div>
 			</button>
 
 			{/* Mobile Menu Overlay */}

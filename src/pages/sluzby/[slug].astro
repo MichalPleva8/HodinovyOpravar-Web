@@ -29,12 +29,30 @@ const relatedServices = services.filter((s) => s.id !== service.id).slice(0, 3)
 	description={`${service.description} Profesionálne služby v Žiline a okolí. Zavolajte 0903 56 66 44 pre bezplatnú cenovú ponuku.`}
 >
 	<!-- Hero Section -->
-	<section class="bg-white px-6 py-20">
+	<section class="bg-white px-6 pb-20 pt-20 md:pt-32 lg:py-20">
 		<div class="container mx-auto max-w-7xl">
-			<div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
+			<div class="grid grid-cols-1 items-center gap-6 md:gap-10 lg:gap-20 lg:grid-cols-2">
 				<!-- Left: Content -->
 				<div>
-					<p class="text-subtitle text-primary mb-3 tracking-wide uppercase">Služba</p>
+					<a
+						href="/#sluzby"
+						class="text-subtitle text-primary hover:text-primary-dark mb-3 inline-flex items-center gap-1.5 tracking-wide uppercase transition-colors"
+					>
+						<svg
+							class="h-4 w-4"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M15 19l-7-7 7-7"
+							></path>
+						</svg>
+						Služby
+					</a>
 					<h1 class="text-h1 mb-6 font-bold text-neutral-800">
 						{service.title}
 					</h1>
@@ -44,16 +62,16 @@ const relatedServices = services.filter((s) => s.id !== service.id).slice(0, 3)
 				</div>
 
 				<!-- Right: Image -->
-				<div>
+				<div class="relative aspect-[4/3] w-full overflow-hidden rounded-card shadow-card">
 					{
 						service.image ? (
 							<img
 								src={service.image}
 								alt={service.title}
-								class="rounded-card shadow-card h-auto w-full"
+								class="h-full w-full object-cover"
 							/>
 						) : (
-							<div class="from-primary/20 to-primary/5 rounded-card flex h-96 w-full items-center justify-center bg-gradient-to-br">
+							<div class="from-primary/20 to-primary/5 flex h-full w-full items-center justify-center bg-gradient-to-br">
 								<svg
 									class="text-primary/30 h-32 w-32"
 									fill="none"
