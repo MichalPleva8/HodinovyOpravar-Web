@@ -1,0 +1,197 @@
+/* Scroll Animations - Hodinový opravár */
+
+/* ============================================
+   Animation Keyframes
+   ============================================ */
+
+/* Fade Up - Default for most content */
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(80px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Fade Down - For headers from top */
+@keyframes fade-down {
+	from {
+		opacity: 0;
+		transform: translateY(-80px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Fade Left - For images from right */
+@keyframes fade-left {
+	from {
+		opacity: 0;
+		transform: translateX(80px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Fade Right - For images from left */
+@keyframes fade-right {
+	from {
+		opacity: 0;
+		transform: translateX(-80px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Scale Up - For cards and buttons */
+@keyframes scale-up {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Fade In - Simple opacity fade */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Slide In Left - For decorative elements */
+@keyframes slide-in-left {
+	from {
+		opacity: 0;
+		transform: translateX(-60px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Slide In Right - For decorative elements */
+@keyframes slide-in-right {
+	from {
+		opacity: 0;
+		transform: translateX(60px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* ============================================
+   Base Animation Styles
+   ============================================ */
+
+/* Hide elements with animation attribute by default */
+[data-animate] {
+	opacity: 0;
+}
+
+/* Apply animation when visible */
+[data-animate].is-visible {
+	animation-fill-mode: both;
+	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================
+   Animation Variants
+   ============================================ */
+
+[data-animate='fade-up'].is-visible {
+	animation-name: fade-up;
+}
+
+[data-animate='fade-down'].is-visible {
+	animation-name: fade-down;
+}
+
+[data-animate='fade-left'].is-visible {
+	animation-name: fade-left;
+}
+
+[data-animate='fade-right'].is-visible {
+	animation-name: fade-right;
+}
+
+[data-animate='scale-up'].is-visible {
+	animation-name: scale-up;
+}
+
+[data-animate='fade-in'].is-visible {
+	animation-name: fade-in;
+}
+
+[data-animate='slide-in-left'].is-visible {
+	animation-name: slide-in-left;
+}
+
+[data-animate='slide-in-right'].is-visible {
+	animation-name: slide-in-right;
+}
+
+/* Counter animation - handled by JavaScript */
+[data-animate='counter'].is-visible {
+	animation-name: fade-up;
+}
+
+/* ============================================
+   Performance Optimization
+   ============================================ */
+
+/* GPU acceleration for smooth animations */
+[data-animate] {
+	will-change: transform, opacity;
+	transform: translateZ(0);
+}
+
+/* Remove will-change after animation completes */
+[data-animate].is-visible {
+	will-change: auto;
+}
+
+/* ============================================
+   Accessibility - Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+	[data-animate] {
+		animation: none !important;
+		transition: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+		will-change: auto !important;
+	}
+
+	[data-animate].is-visible {
+		animation: none !important;
+	}
+}
+
+/* ============================================
+   Fallback for No JavaScript
+   ============================================ */
+
+/* Show content if JavaScript is disabled */
+noscript [data-animate] {
+	opacity: 1 !important;
+}

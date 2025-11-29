@@ -33,7 +33,12 @@ const relatedServices = services.filter((s) => s.id !== service.id).slice(0, 3)
 		<div class="container mx-auto max-w-7xl">
 			<div class="grid grid-cols-1 items-center gap-6 md:gap-10 lg:gap-20 lg:grid-cols-2">
 				<!-- Left: Content -->
-				<div>
+				<div
+					data-animate="fade-up"
+					data-animate-immediate="true"
+					data-animate-delay="0"
+					data-animate-duration="800"
+				>
 					<a
 						href="/#sluzby"
 						class="text-subtitle text-primary hover:text-primary-dark mb-3 inline-flex items-center gap-1.5 tracking-wide uppercase transition-colors"
@@ -62,7 +67,13 @@ const relatedServices = services.filter((s) => s.id !== service.id).slice(0, 3)
 				</div>
 
 				<!-- Right: Image -->
-				<div class="relative aspect-[4/3] w-full overflow-hidden rounded-card shadow-card">
+				<div
+					class="relative aspect-[4/3] w-full overflow-hidden rounded-card shadow-card"
+					data-animate="fade-up"
+					data-animate-immediate="true"
+					data-animate-delay="400"
+					data-animate-duration="800"
+				>
 					{
 						service.image ? (
 							<img
@@ -97,31 +108,42 @@ const relatedServices = services.filter((s) => s.id !== service.id).slice(0, 3)
 	<section class="bg-white px-6 py-20">
 		<div class="container mx-auto max-w-7xl">
 			<div class="mx-auto max-w-3xl">
-				<h2 class="text-h2 mb-8 text-center font-bold text-neutral-800">Čo je zahrnuté?</h2>
+				<h2
+					class="text-h2 mb-8 text-center font-bold text-neutral-800"
+					data-animate="fade-up"
+					data-animate-delay="0"
+				>
+					Čo je zahrnuté?
+				</h2>
 
 				<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 					{
-						service.included.map((item) => (
-							<Card hoverable={false}>
-								<div class="flex items-start gap-3">
-									<svg
-										class="text-primary mt-0.5 h-6 w-6 flex-shrink-0"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-									>
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M5 13l4 4L19 7"
-										/>
-									</svg>
-									<span class="text-body font-medium text-neutral-700">
-										{item}
-									</span>
+						service.included.map((item, index) => (
+							<div
+								data-animate="fade-up"
+								data-animate-delay={100 + index * 100}
+							>
+									<Card hoverable={false}>
+										<div class="flex items-start gap-3">
+											<svg
+												class="text-primary mt-0.5 h-6 w-6 flex-shrink-0"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M5 13l4 4L19 7"
+												/>
+											</svg>
+											<span class="text-body font-medium text-neutral-700">
+												{item}
+											</span>
+										</div>
+									</Card>
 								</div>
-							</Card>
 						))
 					}
 				</div>

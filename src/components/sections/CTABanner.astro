@@ -12,31 +12,47 @@ import { contact } from '../../data/contact'
 		alt=""
 		class="absolute top-0 left-0 h-auto w-32 md:w-40 lg:w-48"
 		aria-hidden="true"
+		data-animate="slide-in-left"
+		data-animate-delay="0"
+		data-animate-duration="300"
 	/>
 	<img
 		src="/images/cta-banner/pipe-top-right.svg"
 		alt=""
 		class="absolute top-0 right-0 h-auto w-32 md:w-40 lg:w-48"
 		aria-hidden="true"
+		data-animate="slide-in-right"
+		data-animate-delay="0"
+		data-animate-duration="300"
 	/>
 	<img
 		src="/images/cta-banner/pipe-bottom-left.svg"
 		alt=""
 		class="absolute bottom-0 left-0 h-auto w-32 md:w-40 lg:w-48"
 		aria-hidden="true"
+		data-animate="slide-in-left"
+		data-animate-delay="100"
+		data-animate-duration="300"
 	/>
 	<img
 		src="/images/cta-banner/pipe-bottom-right.svg"
 		alt=""
 		class="absolute right-0 bottom-0 h-auto w-32 md:w-40 lg:w-48"
 		aria-hidden="true"
+		data-animate="slide-in-right"
+		data-animate-delay="100"
+		data-animate-duration="300"
 	/>
 
 	<div
 		class="relative z-10 container mx-auto grid items-center gap-0 lg:grid-cols-[35%_65%] lg:gap-4"
 	>
 		<!-- Left side - Image -->
-		<div class="order-2 flex items-center justify-center lg:order-1 lg:justify-end">
+		<div
+			class="order-2 flex items-center justify-center lg:order-1 lg:justify-end"
+			data-animate="fade-right"
+			data-animate-delay="200"
+		>
 			<img
 				src="/images/cta-banner/roman-half-cut-right.png"
 				alt="Profesionálny opravár"
@@ -51,11 +67,15 @@ import { contact } from '../../data/contact'
 			<div class="text-center lg:max-w-[800px] lg:text-left">
 				<h2
 					class="text-display-1 mx-auto mb-4 text-white md:max-w-[600px] lg:mx-0 lg:max-w-full"
+					data-animate="fade-up"
+					data-animate-delay="300"
 				>
 					Máte problém? Vyriešime ho ešte dnes!
 				</h2>
 				<p
 					class="text-body-lg mx-auto mb-8 text-white/90 md:max-w-[600px] lg:mx-0 lg:max-w-[600px]"
+					data-animate="fade-up"
+					data-animate-delay="400"
 				>
 					Kontaktujte nás telefonicky alebo cez formulár a my sa vám ozveme čo najskôr.
 				</p>
@@ -66,6 +86,8 @@ import { contact } from '../../data/contact'
 					<a
 						href={`tel:${contact.phone}`}
 						class="text-h2 group hover:shadow-button-hover active:shadow-button-active inline-flex items-center gap-3 self-center text-white transition-all duration-300 hover:-translate-y-0.5 hover:text-neutral-800 active:translate-y-0"
+						data-animate="scale-up"
+						data-animate-delay="500"
 					>
 						<Phone
 							className="h-7 w-7 text-white transition-all group-hover:scale-110 group-hover:text-neutral-800 md:h-8 md:w-8"
@@ -73,11 +95,19 @@ import { contact } from '../../data/contact'
 						{contact.phoneDisplay}
 					</a>
 
-					<span class="text-body self-center !font-bold text-white lg:mx-2">alebo</span>
+					<span
+						class="text-body self-center !font-bold text-white lg:mx-2"
+						data-animate="fade-in"
+						data-animate-delay="600"
+					>
+						alebo
+					</span>
 
-					<Button href="#kontakt" variant="primary-white" size="lg">
-						Kontaktný formulár
-					</Button>
+					<div data-animate="scale-up" data-animate-delay="700">
+						<Button href="#kontakt" variant="primary-white" size="lg">
+							Kontaktný formulár
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>

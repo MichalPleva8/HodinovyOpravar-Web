@@ -19,23 +19,39 @@ const displayedServices = featured ? services.slice(0, 6) : services
 	<div class="container mx-auto max-w-7xl">
 		<!-- Section Header -->
 		<div class="mx-auto mb-12 max-w-full text-center lg:max-w-[600px]">
-			<p class="text-primary text-subtitle mb-3 tracking-wide uppercase">NAŠE SLUŽBY</p>
-			<h2 class="text-display-2 mb-4 text-neutral-800">Široká škála služieb</h2>
-			<p class="text-body text-neutral-600">
+			<p
+				class="text-primary text-subtitle mb-3 tracking-wide uppercase"
+				data-animate="fade-up"
+				data-animate-delay="0"
+			>
+				NAŠE SLUŽBY
+			</p>
+			<h2
+				class="text-display-2 mb-4 text-neutral-800"
+				data-animate="fade-up"
+				data-animate-delay="100"
+			>
+				Široká škála služieb
+			</h2>
+			<p
+				class="text-body text-neutral-600"
+				data-animate="fade-up"
+				data-animate-delay="200"
+			>
 				Poskytujeme komplexné opravárenské služby pre váš domov alebo firmu. Od vody a
 				kúrenia až po elektro práce a opravy.
 			</p>
 		</div>
 
 		<!-- Services Carousel -->
-		<div class="mb-8">
+		<div class="mb-8" data-animate="fade-up" data-animate-delay="300">
 			<ServicesCarousel services={displayedServices} client:load />
 		</div>
 
 		<!-- CTA - Only show if featured (homepage) -->
 		{
 			featured && (
-				<div class="text-center">
+				<div class="text-center" data-animate="scale-up" data-animate-delay="400">
 					<Button href="/#sluzby" variant="primary" size="lg">
 						Zobraziť všetky služby
 					</Button>

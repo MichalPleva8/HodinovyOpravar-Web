@@ -3,6 +3,7 @@
 import Header from '../components/layout/Header.astro'
 import Footer from '../components/layout/Footer.astro'
 import '../styles/global.css'
+import '../styles/animations.css'
 
 interface Props {
 	title: string
@@ -49,5 +50,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 			<slot />
 		</main>
 		<Footer />
+
+		<!-- Initialize scroll animations -->
+		<script>
+			import { initScrollAnimations, initImmediateAnimations } from '../utils/scroll-animations'
+
+			// Initialize animations when DOM is ready
+			document.addEventListener('DOMContentLoaded', () => {
+				initImmediateAnimations() // Hero sections
+				initScrollAnimations() // Scroll-triggered sections
+			})
+		</script>
 	</body>
 </html>

@@ -7,9 +7,25 @@ import { faq } from '../../data/faq'
 	<div class="container mx-auto max-w-4xl">
 		<!-- Section Header -->
 		<div class="mb-12 text-center">
-			<p class="text-primary text-subtitle mb-3 tracking-wide uppercase">FAQ</p>
-			<h2 class="text-display-2 mb-4">Často kladené otázky</h2>
-			<p class="text-body mx-auto max-w-2xl text-neutral-300">
+			<p
+				class="text-primary text-subtitle mb-3 tracking-wide uppercase"
+				data-animate="fade-up"
+				data-animate-delay="0"
+			>
+				FAQ
+			</p>
+			<h2
+				class="text-display-2 mb-4"
+				data-animate="fade-up"
+				data-animate-delay="100"
+			>
+				Často kladené otázky
+			</h2>
+			<p
+				class="text-body mx-auto max-w-2xl text-neutral-300"
+				data-animate="fade-up"
+				data-animate-delay="200"
+			>
 				Máte otázky? Pozrite si odpovede na najčastejšie otázky, ktoré nám naši zákazníci
 				kladú. Ak nenájdete odpoveď na svoju otázku, neváhajte nás kontaktovať.
 			</p>
@@ -18,8 +34,12 @@ import { faq } from '../../data/faq'
 		<!-- FAQ List -->
 		<div class="space-y-6">
 			{
-				faq.map((item) => (
-					<details class="faq-item group shadow-card hover:shadow-card-hover overflow-hidden rounded-lg bg-white transition-all duration-300 hover:-translate-y-1">
+				faq.map((item, index) => (
+					<details
+						class="faq-item group shadow-card hover:shadow-card-hover overflow-hidden rounded-lg bg-white transition-all duration-300 hover:-translate-y-1"
+						data-animate="fade-up"
+						data-animate-delay={300 + index * 80}
+					>
 						<summary class="faq-summary flex cursor-pointer list-none items-center justify-between py-10 pr-3 pl-8 transition-all duration-450 select-none lg:py-12 lg:pr-6 lg:pl-12">
 							<h3 class="text-h3 group-open:text-primary group-hover:text-primary max-w-[95%] pr-8 font-bold text-neutral-800 transition-colors duration-450">
 								{item.question}

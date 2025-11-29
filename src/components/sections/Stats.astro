@@ -28,14 +28,18 @@ const partners = [
 ]
 ---
 
-<section class="bg-neutral-800 px-6 py-20 text-white lg:py-32">
+<section id="about-us" class="bg-neutral-800 px-6 py-20 text-white lg:py-32">
 	<div class="container mx-auto max-w-7xl">
 		<div
 			class="mx-auto grid max-w-[600px] grid-cols-1 items-center lg:max-w-none lg:grid-cols-2"
 			style="gap: 70px;"
 		>
 			<!-- Left: Image (1/2) -->
-			<div class="order-2 flex items-center justify-center lg:order-1">
+			<div
+				class="order-2 flex items-center justify-center lg:order-1"
+				data-animate="fade-right"
+				data-animate-delay="0"
+			>
 				<img
 					src="/images/experience.jpg"
 					alt="Hodinový opravár pri práci"
@@ -46,13 +50,22 @@ const partners = [
 
 			<!-- Right: Content (1/2) -->
 			<div class="order-1 text-center lg:order-2 lg:text-left">
-				<p class="text-primary text-subtitle mb-3 tracking-wide uppercase">
+				<p
+					class="text-primary text-subtitle mb-3 tracking-wide uppercase"
+					data-animate="fade-up"
+					data-animate-delay="100"
+				>
 					Naše skúseností
 				</p>
-				<h2 class="text-display-2 mb-3">
+				<h2 class="text-display-2 mb-3" data-animate="fade-up" data-animate-delay="200">
 					Zameriavame sa na spokojnosť zákazníka a kvalitu
 				</h2>
-				<p class="text-body text-neutral-300" style="margin-bottom: 22px;">
+				<p
+					class="text-body text-neutral-300"
+					style="margin-bottom: 22px;"
+					data-animate="fade-up"
+					data-animate-delay="300"
+				>
 					S viac ako 30 rokmi skúseností v odvetví poskytujeme profesionálne služby, na
 					ktoré sa môžete spoľahnúť. Každý projekt realizujeme s maximálnou precíznosťou a
 					férovou cenou.
@@ -64,12 +77,22 @@ const partners = [
 					style="margin-bottom: 58px;"
 				>
 					{
-						stats.map((stat) => (
-							<div>
-								<p class="text-display-1 mb-1 text-white">
-									<!-- prettier-ignore-start -->
-									{stat.value}<span style={`color: ${stat.plusColor}`}>+</span>
-									<!-- prettier-ignore-end -->
+						stats.map((stat, index) => (
+							<div
+								class="text-center lg:text-left"
+								data-animate="fade-up"
+								data-animate-delay={400 + index * 100}
+							>
+								<p
+									class="text-display-1 mb-1 text-white"
+									data-animate="counter"
+									data-counter-target={stat.value}
+									data-counter-suffix="+"
+								>
+									{/* <!-- prettier-ignore-start --> */}
+									{stat.value}
+									<span style={`color: ${stat.plusColor}`}>+</span>
+									{/* <!-- prettier-ignore-end --> */}
 								</p>
 								<p
 									class="text-neutral-400"
@@ -82,7 +105,11 @@ const partners = [
 					}
 				</div>
 
-				<div class="flex w-full justify-center lg:w-auto lg:justify-start">
+				<div
+					class="flex w-full justify-center lg:w-auto lg:justify-start"
+					data-animate="scale-up"
+					data-animate-delay="700"
+				>
 					<Button href="#referencie" variant="primary" size="lg" class="w-full md:w-auto"
 						>Referencie</Button
 					>
@@ -91,7 +118,7 @@ const partners = [
 		</div>
 
 		<!-- Partner Logos Stripe -->
-		<div class="mt-16 overflow-hidden lg:mt-20">
+		<div class="mt-16 overflow-hidden lg:mt-20" data-animate="fade-in" data-animate-delay="800">
 			<div class="flex gap-8">
 				<div
 					class="animate-scroll-mobile md:animate-scroll-tablet lg:animate-scroll-desktop flex shrink-0 gap-8"
@@ -99,7 +126,7 @@ const partners = [
 					{
 						partners.map((partner) => (
 							<div
-								class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]"
+								class="flex w-[140px] items-center justify-center p-4 transition-transform md:w-[180px] lg:w-[200px]"
 								style="aspect-ratio: 16/9;"
 							>
 								<img
@@ -118,7 +145,7 @@ const partners = [
 					{
 						partners.map((partner) => (
 							<div
-								class="flex w-[140px] items-center justify-center p-4 transition-transform hover:-translate-y-1 md:w-[180px] lg:w-[200px]"
+								class="flex w-[140px] items-center justify-center p-4 transition-transform md:w-[180px] lg:w-[200px]"
 								style="aspect-ratio: 16/9;"
 							>
 								<img

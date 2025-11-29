@@ -18,15 +18,33 @@ const displayedTestimonials = featured ? testimonials.slice(0, 6) : testimonials
 	<div class="container mx-auto max-w-7xl">
 		<!-- Section Header -->
 		<div class="mb-12 text-center lg:mb-8">
-			<p class="text-primary text-subtitle mb-3 tracking-wide uppercase">REFERENCIE</p>
-			<h2 class="text-display-2 mb-4 text-neutral-800">Čo hovoria naši zákazníci</h2>
-			<p class="text-body mx-auto max-w-2xl text-neutral-600">
+			<p
+				class="text-primary text-subtitle mb-3 tracking-wide uppercase"
+				data-animate="fade-up"
+				data-animate-delay="0"
+			>
+				REFERENCIE
+			</p>
+			<h2
+				class="text-display-2 mb-4 text-neutral-800"
+				data-animate="fade-up"
+				data-animate-delay="100"
+			>
+				Čo hovoria naši zákazníci
+			</h2>
+			<p
+				class="text-body mx-auto max-w-2xl text-neutral-600"
+				data-animate="fade-up"
+				data-animate-delay="200"
+			>
 				Prečítajte si hodnotenia od spokojných zákazníkov, ktorí využili naše služby. Vaša
 				spokojnosť je naša priorita.
 			</p>
 		</div>
 
 		<!-- Testimonials Carousel -->
-		<TestimonialsCarousel testimonials={displayedTestimonials} client:load />
+		<div data-animate="fade-up" data-animate-delay="300">
+			<TestimonialsCarousel testimonials={displayedTestimonials} client:load />
+		</div>
 	</div>
 </section>
